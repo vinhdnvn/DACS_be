@@ -9,7 +9,7 @@ const EventController = require("../controllers/events");
 const storage = multer.diskStorage({
   // notice you are calling the multer.diskStorage() method here, not multer()
   destination: function (req, file, cb) {
-    cb(null, "./uploads/event");
+    cb(null, "./uploads");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -18,7 +18,11 @@ const storage = multer.diskStorage({
 
 const fileFilter = (req, file, cb) => {
   // reject a file
-  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+  if (
+    file.mimetype === "image/jfif" ||
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/avif"
+  ) {
     cb(null, true);
   } else {
     cb(null, false);
