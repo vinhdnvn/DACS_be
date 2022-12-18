@@ -2,38 +2,38 @@ const Event = require("../models/event");
 const mongoose = require("mongoose");
 
 exports.events_get_all = (req, res, next) => {
-  Event.find()
-    .select("_id name locateAt eventType eventImage")
-    .exec()
-    .then((docs) => {
-      const response = {
-        count: docs.length,
-        events: docs.map((doc) => {
-          return {
-            _id: doc._id,
-            name: doc.name,
-            locateAt: doc.locateAt,
-            eventType: doc.eventType,
-            eventImage: doc.eventImage,
-          };
-        }),
-      };
-      res.status(200).json(response);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
-
-  // Event.find({})
-  //   .then((x) => {
-  //     res.render("event.ejs", { x });
+  // Event.find()
+  //   .select("_id name locateAt eventType eventImage")
+  //   .exec()
+  //   .then((docs) => {
+  //     const response = {
+  //       count: docs.length,
+  //       events: docs.map((doc) => {
+  //         return {
+  //           _id: doc._id,
+  //           name: doc.name,
+  //           locateAt: doc.locateAt,
+  //           eventType: doc.eventType,
+  //           eventImage: doc.eventImage,
+  //         };
+  //       }),
+  //     };
+  //     res.status(200).json(response);
   //   })
-  //   .catch((y) => {
-  //     console.log(y);
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).json({
+  //       error: err,
+  //     });
   //   });
+
+  Event.find({})
+    .then((x) => {
+      res.render("event.ejs", { x });
+    })
+    .catch((y) => {
+      console.log(y);
+    });
 };
 
 exports.events_post_event = (req, res, next) => {
