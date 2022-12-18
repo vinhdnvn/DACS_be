@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="eventCard">
+      <div class="grid grid-cols-4 gap-4">
+        <% x.forEach((y)=> { %>
+        <div class="container flex flex-col justify-center">
+          <div class="imageDiv flex justify-center">
+            <img
+              class="h-[380px] w-[260px]"
+              src="upload<%=y.eventImage%>"
+              alt="anh da bi an"
+            />
+          </div>
+          <div class="detailEvent flex flex-col justify-center">
+            <div class="nameEvent text-center">
+              <a href=""><%=y.name%></a>
+            </div>
+            <div class="typeEvent text-center">
+              <a href=""><%=y.eventType%></a>
+            </div>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

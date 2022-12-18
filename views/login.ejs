@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="userForm">
+      <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+            <h3 class="text-2xl font-bold text-center">Login to your account</h3>
+            <form action="">
+                <div>
+                    <div  class="mt-4">
+                        <label class="block" for="email">Email<label>
+                                <input type="email" placeholder="Email" name="email" required
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                    <div class="email error"></div>
+                                  </div>
+                    <div class="mt-4">
+                        <label class="block">Password<label>
+                                <input type="password" placeholder="Password" name="password" required
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                    <div class="password error"></div>
+                                  </div>
+                    <div class="flex">
+                      <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Login</button>
+                  </div>
+                </div>
+            </form>
+            <script>
+              const form = document.querySelector('form');
+              const emailError = document.querySelector('.email.error');
+              const passwordError = document.querySelector('.password.error');
+              form.addEventListener('submit',async(e)=>{
+                e.preventDefault();
+ 
+                    // reset errors
+                emailError.textContent ='';
+                passwordError.textContent='';
+
+                //get the values
+                const email = form.email.value;
+                const password = form.password.value;
+
+                try {
+                  const res = await fetch('/login',{
+                    method:'POST',
+                    body: JSON.stringify({email,password}),
+                    headers:{'Content-Type':'application/json'}
+                  });
+                  const data =await res.json();
+                  console.log(data);
+                  if(data.errors){
+                    emailError.textContent = data.errors.email;
+                    passwordError.textContent = data.errors.password;
+                  }
+                  else{
+                    location.assign('/');
+                  }
+                } catch (error) {
+                  console.log(error);
+                  
+                }
+              });
+            </script>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>
