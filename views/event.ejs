@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="eventCard">
+    <div class="eventCard flex flex-col">
       <div class="grid grid-cols-4 gap-4">
         <% x.forEach((y)=> { %>
         <div class="container flex flex-col justify-center">
@@ -30,6 +30,13 @@
         </div>
 
         <% }) %>
+      </div>
+      <div>
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <a href="/addevent">Add </a>
+        </button>
       </div>
     </div>
   </body>

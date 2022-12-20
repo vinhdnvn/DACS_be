@@ -1,5 +1,7 @@
 const Event = require("../models/event");
 const mongoose = require("mongoose");
+var fs = require("fs");
+var path = require("path");
 
 exports.events_get_all = (req, res, next) => {
   // Event.find()
@@ -36,12 +38,34 @@ exports.events_get_all = (req, res, next) => {
     });
 };
 
-exports.events_post_event = (req, res, next) => {
+exports.events_get_addEvent = (req, res, next) => {
+  res.render("addevent");
+};
+
+exports.events_post_addEvent = (req, res, next) => {
+  // var obj = {
+  //   _id: new mongoose.Types.ObjectId(),
+  //   name: req.body.name,
+  //   locateAt: req.body.locateAt,
+  //   update: req.body.update,
+  //   eventType: req.body.eventType,
+  //   note: req.body.note,
+  //   eventImage: req.file.path.replace(/\\/g, "/"),
+  // };
+  // Event.create(obj, (err, item) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     // item.save();
+  //     res.redirect("/addevent");
+  //   }
+  // });
+  console.log(req.file);
   const event = new Event({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
-    update: req.body.update,
     locateAt: req.body.locateAt,
+    update: req.body.update,
     eventType: req.body.eventType,
     note: req.body.note,
     eventImage: req.file.path.replace(/\\/g, "/"),
@@ -84,7 +108,7 @@ exports.events_delete_event = (req, res, next) => {
 
 exports.events_get_event = (req, res, next) => {
   Event.findById(req.params.eventId)
-    .select("_id name update locateAt eventType note eventImage")
+    .select("_id name update locate type note eventImage")
     .exec()
     .then((doc) => {
       console.log("From database", doc);
