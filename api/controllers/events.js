@@ -1,7 +1,13 @@
 const Event = require("../models/event");
 const mongoose = require("mongoose");
-var fs = require("fs");
-var path = require("path");
+const moment = require("moment");
+
+const maxAge = 3 * 24 * 60 * 60;
+const createToken = (id) => {
+  return jwt.sign({ id }, "secret", {
+    expiresIn: maxAge,
+  });
+};
 
 exports.events_get_all = (req, res, next) => {
   // Event.find()
@@ -30,8 +36,10 @@ exports.events_get_all = (req, res, next) => {
   //   });
 
   Event.find({})
+    .populate("postedBy", "email")
     .then((x) => {
       res.render("event.ejs", { x });
+      console.log(postedBy.email);
     })
     .catch((y) => {
       console.log(y);
@@ -43,26 +51,11 @@ exports.events_get_addEvent = (req, res, next) => {
 };
 
 exports.events_post_addEvent = (req, res, next) => {
-  // var obj = {
-  //   _id: new mongoose.Types.ObjectId(),
-  //   name: req.body.name,
-  //   locateAt: req.body.locateAt,
-  //   update: req.body.update,
-  //   eventType: req.body.eventType,
-  //   note: req.body.note,
-  //   eventImage: req.file.path.replace(/\\/g, "/"),
-  // };
-  // Event.create(obj, (err, item) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     // item.save();
-  //     res.redirect("/addevent");
-  //   }
-  // });
-  console.log(req.file);
+  // console.log(req.file);
+
   const event = new Event({
     _id: new mongoose.Types.ObjectId(),
+    postedBy: req.body.email,
     name: req.body.name,
     locateAt: req.body.locateAt,
     update: req.body.update,
@@ -70,17 +63,13 @@ exports.events_post_addEvent = (req, res, next) => {
     note: req.body.note,
     eventImage: req.file.path.replace(/\\/g, "/"),
   });
+  const token = createToken(event.postedBy._id);
+  res.cookies("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
   event
     .save()
     .then((result) => {
-      res.status(201).json({
-        message: "Created Event Successfully",
-        createdEvent: {
-          name: result.name,
-          update: result.update,
-          _id: result._id,
-        },
-      });
+      res.status(201).json({ result: event.postedBy._id });
+      res.redirect("events");
     })
     .catch((err) => {
       console.log(err);
@@ -91,19 +80,14 @@ exports.events_post_addEvent = (req, res, next) => {
 };
 
 exports.events_delete_event = (req, res, next) => {
-  Event.remove({ _id: req.params.eventId })
-    .exec()
-    .then((result) => {
-      res.status(200).json({
-        message: "event deleted",
-      });
-    })
-    .catch((err) => {
+  const event = req.body._id;
+  Event.findByIdAndRemove(event, (err) => {
+    if (err) {
       console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
+    } else {
+      res.redirect("/events");
+    }
+  });
 };
 
 exports.events_get_event = (req, res, next) => {
@@ -128,21 +112,33 @@ exports.events_get_event = (req, res, next) => {
     });
 };
 
+exports.events_getupdate_event = (req, res, next) => {
+  Event.findOneAndUpdate(
+    { _id: req.params.eventId },
+    req.body,
+    { new: true },
+    (err, docs) => {
+      if (err) {
+        res.status(404).json(err);
+      } else {
+        res.render("editEvent", { event: docs });
+      }
+    }
+  );
+};
+
 exports.events_update_event = async (req, res, next) => {
-  try {
-    const id = req.params.eventId;
-    const updates = req.body;
-    const options = { new: true };
-
-    const result = await Event.findByIdAndUpdate(id, updates, options);
-
-    res.send(result);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      error: error,
-    });
-  }
+  Event.findByIdAndUpdate(
+    { _id: req.params.eventId },
+    req.body,
+    (err, docs) => {
+      if (err) {
+        res.status(400).json(err);
+      } else {
+        res.redirect("events");
+      }
+    }
+  );
   // const updateOps = {};
   // for (const ops of req.body) {
   //   updateOps[ops.propName] = ops.value;

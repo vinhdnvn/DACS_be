@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const multer = require("multer");
 
-const Event = require("../models/event");
+const multer = require("multer");
+const { requireAuth, checkUser } = require("../middleware/authMiddleware");
+
 const EventController = require("../controllers/events");
 // setting upload file
 const storage = multer.diskStorage({
@@ -44,7 +44,12 @@ const upload = multer({
 router.get("/events", EventController.events_get_all);
 // new events
 
-router.get("/addevent", EventController.events_get_addEvent);
+router.get(
+  "/addevent",
+  requireAuth,
+  checkUser,
+  EventController.events_get_addEvent
+);
 router.post(
   "/addevent",
   upload.single("eventImage"),
@@ -53,7 +58,8 @@ router.post(
 
 router.get("/events/:eventId", EventController.events_get_event);
 
-router.delete("/events/:eventId", EventController.events_delete_event);
-
-router.patch("/events/:eventId", EventController.events_update_event);
+router.post("/events/delete", EventController.events_delete_event);
+// update
+router.get("/events/:eventId/edit", EventController.events_getupdate_event);
+router.post("/events/:eventId/edit", EventController.events_update_event);
 module.exports = router;

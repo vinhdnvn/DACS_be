@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 
 const multer = require("multer");
-const Blog = require("../models/blog");
-const User = require("../models/user");
+
 // controllers
 const BlogController = require("../controllers/blogs");
 
@@ -13,7 +11,7 @@ const BlogController = require("../controllers/blogs");
 const storage = multer.diskStorage({
   // notice you are calling the multer.diskStorage() method here, not multer()
   destination: function (req, file, cb) {
-    cb(null, "./uploads/blogs");
+    cb(null, "uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -22,7 +20,13 @@ const storage = multer.diskStorage({
 
 const fileFilter = (req, file, cb) => {
   // reject a file
-  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+  if (
+    file.mimetype.includes("image/jfif") ||
+    file.mimetype.includes("image/png") ||
+    file.mimetype.includes("image/avif") ||
+    file.mimetype.includes("image/jpeg") ||
+    file.mimetype.includes("image/jpg")
+  ) {
     cb(null, true);
   } else {
     cb(null, false);
@@ -38,14 +42,18 @@ const upload = multer({
 });
 
 // router
-router.get("/", BlogController.blogs_get_all);
+router.get("/blogs", BlogController.blogs_get_all);
 
-router.get("/:blogId", BlogController.blogs_get_blog);
+router.get("/addblog", BlogController.blogs_get_addblog);
 
-router.post("/", upload.single("blogImage"), BlogController.blogs_post_blog);
+router.post(
+  "/addblog",
+  upload.single("blogImage"),
+  BlogController.blogs_post_blog
+);
 
-router.patch("/:blogId", BlogController.blogs_update_blog);
+router.patch("/blogs/:blogId", BlogController.blogs_update_blog);
 
-router.delete("/:blogId", BlogController.blogs_delete_blog);
+router.post("/blogs/:blogId", BlogController.blogs_delete_blog);
 
 module.exports = router;

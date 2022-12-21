@@ -58,7 +58,7 @@ app.get("/", checkUser, (req, res) => {
 // app.use("/events", eventRoutes);
 app.use(eventRoutes);
 app.use("/user", userRoutes);
-app.use("/blogs", blogRoutes);
+app.use(blogRoutes);
 
 // login,signup form
 app.use(authRoutes);

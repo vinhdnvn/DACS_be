@@ -10,17 +10,11 @@
   <body>
     <div class="">
       <div class="">
-        <form action="/addevent" method="post" enctype="multipart/form-data">
-          <!-- <div class="mt-4">
-            <input
-              type="text"
-              placeholder="Author"
-              name="postedBy"
-              value=""
-              required
-              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-            />
-          </div> -->
+        <form
+          action="/events/<%-event._id%>/edit"
+          method="post"
+          enctype="multipart/form-data"
+        >
           <div class="mt-4">
             <input
               type="text"
@@ -28,6 +22,7 @@
               name="name"
               required
               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+              value="<%- event.name%>"
             />
           </div>
           <div class="mt-4">
@@ -37,6 +32,7 @@
               name="locateAt"
               required
               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+              value="<%- event.locateAt%>"
             />
           </div>
           <div class="mt-4">
@@ -46,6 +42,7 @@
               list="event_Type"
               id="eventTypes"
               name="eventType"
+              value="<%- event.eventType%>"
             />
             <datalist id="event_Type">
               <option value="Meeting"></option>
@@ -61,6 +58,7 @@
               placeholder="Note"
               name="note"
               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+              value="<%- event.note%>"
             />
           </div>
           <div class="mt-4">
@@ -72,6 +70,7 @@
               name="update"
               required
               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+              value="<%- event.createUpdate%>"
             />
           </div>
           <div class="mt-4">
@@ -83,6 +82,7 @@
               name="eventImage"
               required
               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+              value="<%- event.eventImage%>"
             />
           </div>
           <div class="mt-4 flex">
@@ -90,7 +90,7 @@
               type="submit"
               class="text-white bg-blue-600 rounded-lg hover:bg-blue-900"
             >
-              Add Event
+              Cập nhật
             </button>
           </div>
         </form>

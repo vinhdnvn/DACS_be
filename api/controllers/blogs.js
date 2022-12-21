@@ -1,30 +1,26 @@
 const mongoose = require("mongoose");
+
 const Blog = require("../models/blog");
-const User = require("../models/user");
+
+const maxAge = 3 * 24 * 60 * 60;
+const createToken = (id) => {
+  return jwt.sign({ id }, "secret", {
+    expiresIn: maxAge,
+  });
+};
 
 exports.blogs_get_all = (req, res, next) => {
-  Blog.find()
-    .select("user _id description")
-    .populate("user", "email")
-    .exec()
-    .then((docs) => {
-      return res.status(200).json({
-        count: docs.length,
-        blogs: docs.map((doc) => {
-          return {
-            _id: doc._id,
-            description: doc.description,
-            user: doc.user,
-          };
-        }),
-      });
+  Blog.find({})
+    .then((x) => {
+      res.render("blogs.ejs", { x });
     })
-    .catch((err) => {
-      console.log(err);
-      return res.status(500).json({
-        error: err,
-      });
+    .catch((y) => {
+      console.log(y);
     });
+};
+
+exports.blogs_get_addblog = (req, res, next) => {
+  res.render("addblog.ejs");
 };
 
 exports.blogs_get_blog = (req, res, next) => {
@@ -49,34 +45,18 @@ exports.blogs_get_blog = (req, res, next) => {
 };
 
 exports.blogs_post_blog = (req, res, next) => {
-  User.findById(req.body.userId)
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({
-          message: "User not found",
-        });
-      }
-      const blog = new Blog({
-        _id: new mongoose.Types.ObjectId(),
-        user: req.body.userId,
-        description: req.body.description,
-        content: req.body.content,
-        blogImage: req.file.path.replace(/\\/g, "/").substring("public".length),
-      });
-      return blog.save();
-    })
-    .then((result) => {
-      console.log(result);
-      res.status(201).json({
-        message: "Created blog successfully",
-        createdBlog: {
-          _id: result._id,
-          user: result.user,
-          description: result.description,
-          content: result.content,
-          update: result.update,
-        },
-      });
+  const blog = new Blog({
+    _id: new mongoose.Types.ObjectId(),
+    blogType: req.body.blogType,
+    description: req.body.description,
+    content: req.body.content,
+    blogImage: req.file.path.replace(/\\/g, "/"),
+  });
+
+  blog
+    .save()
+    .then((blogs) => {
+      res.redirect("/blogs");
     })
     .catch((err) => {
       console.log(err);
@@ -106,17 +86,15 @@ exports.blogs_update_blog = (req, res, next) => {
     });
 };
 
-exports.blogs_delete_blog = (req, res, next) => {
-  Blog.remove({
-    _id: req.params.blogId,
-  })
-    .exec()
-    .then((result) => {
-      res.status(200).json({
-        message: "Deleted succesfully",
-      });
+exports.blogs_delete_blog = async (req, res, next) => {
+  Blog.deleteOne({ blogId: req.params.blogId })
+    .then(() => {
+      res.redirect("/blogs");
     })
-    .catch((err) => {
-      error: err;
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({
+        error: error,
+      });
     });
 };

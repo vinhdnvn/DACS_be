@@ -2,38 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/user");
-const checkAuth = require("../middleware/check-auth");
+// const checkAuth = require("../middleware/check-auth");
 const { requireAuth } = require("../middleware/authMiddleware");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 router.get("/", requireAuth, (req, res, next) => {
-  // User.find()
-  //   .select("_id name email phone role")
-  //   .exec()
-  //   .then((docs) => {
-  //     const response = {
-  //       cont: docs.length,
-  //       users: docs.map((doc) => {
-  //         return {
-  //           _id: doc._id,
-  //           name: doc.name,
-  //           email: doc.email,
-  //           phone: doc.phone,
-  //           role: doc.role,
-  //         };
-  //       }),
-  //     };
-  //     res.status(200).json(response);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     res.status(500).json({
-  //       error: err,
-  //     });
-  //   });
-
   User.find({})
     .then((x) => {
       res.render("user.ejs", { x });
