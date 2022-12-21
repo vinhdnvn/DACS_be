@@ -1,0 +1,64 @@
+.top-menu-item:hover {
+  color: white;
+}
+.top-menu-item-active {
+  color: white;
+}
+.top-menu-expanded {
+  background-color: #07192f;
+}
+.slick-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%, 50px);
+  background-color: #84cc16;
+  color: white;
+  border: none;
+  z-index: 2;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  line-height: 11px;
+}
+
+.slick-icon:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  right: 0;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0 30px;
+}
+.slick-dots button {
+  font-size: 0px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100rem;
+  background-color: #ccc;
+  border: none;
+  outline: none;
+  transition: all 0.2s linear;
+}
+
+slick-dots .slick-active button {
+  background-color: #20e3b2;
+}

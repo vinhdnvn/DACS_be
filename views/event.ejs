@@ -8,10 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="eventCard">
+    <div class="eventCard flex flex-col">
       <div class="grid grid-cols-4 gap-4">
         <% x.forEach((y)=> { %>
         <div class="container flex flex-col justify-center">
+          <div class="date text-center">
+            <p><%=y.createUpdate%></p>
+          </div>
           <div class="imageDiv flex justify-center">
             <img
               class="h-[380px] w-[260px]"
@@ -26,10 +29,40 @@
             <div class="typeEvent text-center">
               <a href=""><%=y.eventType%></a>
             </div>
+            <div class="postedBy text-center">
+              <!-- <a href=""><%=y.postedBy%></a> -->
+            </div>
+            <div class="buttonDelete my-2">
+              <form action="/events/delete" method="post">
+                <input type="hidden" name="_id" value="<%=y._id%>" />
+                <button
+                  class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                  type="submit"
+                >
+                  Delete
+                </button>
+              </form>
+            </div>
+            <div class="buttonEdit my-2">
+              <a
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                href="/events/<%=y._id%>/edit"
+                >Edit</a
+              >
+            </div>
           </div>
         </div>
 
         <% }) %>
+      </div>
+      <div class="flex flex-row">
+        <div class="buttonAddevent">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            <a href="/addevent">Add </a>
+          </button>
+        </div>
       </div>
     </div>
   </body>

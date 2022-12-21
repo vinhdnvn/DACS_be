@@ -4,69 +4,145 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="../uploads/logo-tab.jpg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Virtual VKU</title>
   </head>
   <body>
     <div class="userForm">
       <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
-            <h3 class="text-2xl font-bold text-center">Login to your account</h3>
-            <form action="">
+        <div
+          class="px-6 py-4 mt-4 w-[30vw] h-[60vh] text-left bg-white shadow-lg"
+        >
+          <h3 class="text-2xl font-bold text-center">Login to your account</h3>
+          <!-- <form action="">
                 <div>
                     <div  class="mt-4">
                         <label class="block" for="email">Email<label>
                                 <input type="email" placeholder="Email" name="email" required
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                                     <div class="email error"></div>
-                                  </div>
+                      </div>
                     <div class="mt-4">
                         <label class="block">Password<label>
                                 <input type="password" placeholder="Password" name="password" required
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                                     <div class="password error"></div>
                                   </div>
+                    
                     <div class="flex">
                       <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Login</button>
-                  </div>
+                    </div>
                 </div>
-            </form>
-            <script>
-              const form = document.querySelector('form');
-              const emailError = document.querySelector('.email.error');
-              const passwordError = document.querySelector('.password.error');
-              form.addEventListener('submit',async(e)=>{
-                e.preventDefault();
- 
-                    // reset errors
-                emailError.textContent ='';
-                passwordError.textContent='';
+            </form> -->
+          <form>
+            <div
+              class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
+            >
+              <p class="text-center font-semibold mx-4 mb-0">Virtual map</p>
+            </div>
 
-                //get the values
-                const email = form.email.value;
-                const password = form.password.value;
+            <!-- Email input -->
+            <div class="mb-6">
+              <input
+                type="email"
+                name="email"
+                required
+                class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Email"
+              />
+              <div class="email error"></div>
+            </div>
 
-                try {
-                  const res = await fetch('/login',{
-                    method:'POST',
-                    body: JSON.stringify({email,password}),
-                    headers:{'Content-Type':'application/json'}
-                  });
-                  const data =await res.json();
-                  console.log(data);
-                  if(data.errors){
-                    emailError.textContent = data.errors.email;
-                    passwordError.textContent = data.errors.password;
-                  }
-                  else{
-                    location.assign('/');
-                  }
-                } catch (error) {
-                  console.log(error);
-                  
+            <!-- Password input -->
+            <div class="mb-6">
+              <input
+                type="password"
+                name="password"
+                required
+                class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Password"
+              />
+              <div class="password error"></div>
+            </div>
+
+            <div class="flex justify-between items-center mb-6">
+              <div class="form-group form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                  id="exampleCheck2"
+                />
+                <label
+                  class="form-check-label inline-block text-gray-800"
+                  for="exampleCheck2"
+                  >Remember me</label
+                >
+              </div>
+              <a href="#!" class="text-gray-800">Forgot password?</a>
+            </div>
+
+            <div class="text-center lg:text-left flex flex-col items-center">
+              <button
+                class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              >
+                Login
+              </button>
+              <p class="text-sm font-semibold mt-2 pt-1 mb-0">
+                Don't have an account?
+                <a
+                  href="#"
+                  class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                  >Register</a
+                >
+              </p>
+            </div>
+          </form>
+
+          <script>
+            const form = document.querySelector("form");
+            const emailError = document.querySelector(".email.error");
+            const passwordError = document.querySelector(".password.error");
+            form.addEventListener("submit", async (e) => {
+              e.preventDefault();
+
+              // reset errors
+              emailError.textContent = "";
+              passwordError.textContent = "";
+
+              //get the values
+              const email = form.email.value;
+              const password = form.password.value;
+
+              try {
+                const res = await fetch("/login", {
+                  method: "POST",
+                  body: JSON.stringify({ email, password }),
+                  headers: { "Content-Type": "application/json" },
+                });
+                const data = await res.json();
+                console.log(data);
+                if (data.errors) {
+                  emailError.textContent = data.errors.email;
+                  passwordError.textContent = data.errors.password;
+                } else {
+                  location.assign("/");
                 }
-              });
-            </script>
+              } catch (error) {
+                console.log(error);
+              }
+            });
+          </script>
         </div>
-    </div>
+      </div>
     </div>
   </body>
 </html>
