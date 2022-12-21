@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="">
+      <div class="">
+        <form action="/addblog" method="post" enctype="multipart/form-data">
+          <div class="mt-4">
+            <label for="blogTypes">Choose a Type of Blog :</label>
+            <input
+              class="border-4 border-black"
+              type="text"
+              list="blog_Type"
+              id="blogTypes"
+              name="blogType"
+            />
+            <datalist id="blog_Type">
+              <option value="Technology"></option>
+              <option value="Sport"></option>
+              <option value="Student"></option>
+              <option value="Event"></option>
+              <option value="Lecturer"></option>
+            </datalist>
+          </div>
+          <div class="mt-4">
+            <input
+              type="text"
+              placeholder="Description"
+              name="description"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+            />
+          </div>
+          <div class="mt-4">
+            <input
+              type="text"
+              placeholder="Blog's Content"
+              name="content"
+              required
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+            />
+          </div>
+          <div class="mt-4">
+            <label for="blogImages">Upload image of Blog : </label>
+            <input
+              id="blogImages"
+              type="file"
+              placeholder="blogImagess"
+              name="blogImage"
+              required
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+            />
+          </div>
+          <div class="mt-4 flex">
+            <button
+              type="submit"
+              class="text-white bg-blue-600 rounded-lg hover:bg-blue-900"
+            >
+              Add Blog
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -5,6 +5,8 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 let flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
+var fs = require("fs");
+var path = require("path");
 // protect route
 const { requireAuth, checkUser } = require("./api/middleware/authMiddleware");
 // mongoose
@@ -53,9 +55,10 @@ app.get("/", checkUser, (req, res) => {
 });
 
 // routes which should handle request
-app.use("/events", eventRoutes);
+// app.use("/events", eventRoutes);
+app.use(eventRoutes);
 app.use("/user", userRoutes);
-app.use("/blogs", blogRoutes);
+app.use(blogRoutes);
 
 // login,signup form
 app.use(authRoutes);

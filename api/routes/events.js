@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const multer = require("multer");
 
-const Event = require("../models/event");
+const multer = require("multer");
+const { requireAuth, checkUser } = require("../middleware/authMiddleware");
+
 const EventController = require("../controllers/events");
 // setting upload file
 const storage = multer.diskStorage({
   // notice you are calling the multer.diskStorage() method here, not multer()
   destination: function (req, file, cb) {
-    cb(null, "./uploads");
+    cb(null, "uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -19,13 +19,16 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
   // reject a file
   if (
-    file.mimetype === "image/jfif" ||
-    file.mimetype === "image/png" ||
-    file.mimetype === "image/avif"
+    file.mimetype.includes("image/jfif") ||
+    file.mimetype.includes("image/png") ||
+    file.mimetype.includes("image/avif") ||
+    file.mimetype.includes("image/jpeg") ||
+    file.mimetype.includes("image/jpg")
   ) {
     cb(null, true);
   } else {
     cb(null, false);
+    console.log("errorrrrrrr");
   }
 };
 
@@ -38,17 +41,25 @@ const upload = multer({
 });
 
 // get all events
-router.get("/", EventController.events_get_all);
+router.get("/events", EventController.events_get_all);
 // new events
+
+router.get(
+  "/addevent",
+  requireAuth,
+  checkUser,
+  EventController.events_get_addEvent
+);
 router.post(
-  "/",
+  "/addevent",
   upload.single("eventImage"),
-  EventController.events_post_event
+  EventController.events_post_addEvent
 );
 
-router.get("/:eventId", EventController.events_get_event);
+router.get("/events/:eventId", EventController.events_get_event);
 
-router.delete("/:eventId", EventController.events_delete_event);
-
-router.patch("/:eventId", EventController.events_update_event);
+router.post("/events/delete", EventController.events_delete_event);
+// update
+router.get("/events/:eventId/edit", EventController.events_getupdate_event);
+router.post("/events/:eventId/edit", EventController.events_update_event);
 module.exports = router;
