@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="../img/logo-tab.jpg" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link href="../output.css" type="text/css" rel="stylesheet" />
+    <script src="./main.js" type="text/javascript" async></script>
+    <link rel="stylesheet" href="../wow/animate.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Virtual VKU</title>
   </head>
+
   <body>
     <div>
       <div
@@ -127,68 +139,57 @@
 
         <!-- Body page -->
         <div id="body-page" class="mt-[150px] mb-[120px] flex flex-row gap-20">
-          <div class="flex justify-center left-[50%]">
-            <div class="">
-              <form
-                action="/addblog"
-                method="post"
-                enctype="multipart/form-data"
-              >
-                <div class="mt-4">
-                  <label for="blogTypes">Choose a Type of Blog :</label>
-                  <input
-                    class="border-4 border-black"
-                    type="text"
-                    list="blog_Type"
-                    id="blogTypes"
-                    name="blogType"
-                  />
-                  <datalist id="blog_Type">
-                    <option value="Technology"></option>
-                    <option value="Sport"></option>
-                    <option value="Student"></option>
-                    <option value="Event"></option>
-                    <option value="Lecturer"></option>
-                  </datalist>
-                </div>
-                <div class="mt-4">
-                  <input
-                    type="text"
-                    placeholder="Description"
-                    name="description"
-                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
-                </div>
+          <div class="text-black font-semibold flex flex-col gap-3">
+            <div class="basis-[40%]">
+              <img
+                class="object-cover w-[400px] h-[400px] rounded-full"
+                src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/320935744_5506417392803368_4952738920705325237_n.jpg?stp=dst-jpg_s1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=DFTaI7aK4xgAX8p_JHZ&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfCm-j4zWLXOjs-8ee6Ajj41fNjugdxTbUO_M2j8gdpwqw&oe=63A65DE4"
+                alt=""
+              />
+            </div>
 
-                <div class="mt-4">
-                  <label for="blogImages">Upload image of Blog : </label>
-                  <input
-                    id="blogImages"
-                    type="file"
-                    placeholder="blogImagess"
-                    name="blogImage"
-                    required
-                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
+            <div
+              class="py-2 border-2 text-center border-solid border-green-600"
+            >
+              Edit profile
+            </div>
+            <div>Your blog: <%- x.length%></div>
+          </div>
+          <div class="basis-[60%] flex flex-col gap-8">
+            <div class="flex flex-row gap-3">
+              <input
+                class="basis-[80%] py-2 px-2 focus:outline-none border-solid border-2 border-green-500 rounded-md"
+                type="text"
+                placeholder="Your Blog"
+              />
+              <button class="basis-[20%] py-2 text-white bg-black">
+                <a href="">New</a>
+              </button>
+            </div>
+            <div class="grid grid-cols-2">
+              <div class="blogItem w-full md:basis-1/2 px-4">
+                <div class="max-w-[370px] mx-auto mb-10">
+                  <div
+                    class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-8 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(./img/com-sprcc.jpg)] bg-cover bg-no-repeat bg-center"
+                  ></div>
+                  <div>
+                    <span
+                      class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5"
+                    >
+                      <%=y.createUpdate%>
+                    </span>
+                    <h3>
+                      <a
+                        href="javascript:void(0)"
+                        class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-[#00CC99]"
+                      >
+                        <%=y.description%>
+                      </a>
+                    </h3>
+                    <p class="text-base text-body-color"><%=y.content%></p>
+                  </div>
                 </div>
-                <div class="mt-4">
-                  <input
-                    type="text"
-                    placeholder="Blog's Content"
-                    name="content"
-                    required
-                    class="w-[70vw] h-[40vh] px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
-                </div>
-                <div class="mt-4 flex">
-                  <button
-                    type="submit"
-                    class="text-white bg-blue-600 rounded-lg hover:bg-blue-900"
-                  >
-                    Add Blog
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -313,5 +314,10 @@
         </div>
       </div>
     </div>
+
+    <script src="./wow/wow.min.js" type="text/javascript"></script>
+    <script>
+      new WOW().init();
+    </script>
   </body>
 </html>

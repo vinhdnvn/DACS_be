@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const { requireAuth, checkUser } = require("../middleware/authMiddleware");
 const multer = require("multer");
 
 // controllers
@@ -54,6 +54,17 @@ router.post(
 
 router.patch("/blogs/:blogId", BlogController.blogs_update_blog);
 
-router.post("/blogs/:blogId", BlogController.blogs_delete_blog);
+router.post("/blogs/delete", BlogController.blogs_delete_blog);
+
+//detail blog
+router.get("/blogs/profile/:blogId", BlogController.blogs_getdetail);
+
+// profile user blog
+router.get(
+  "/blogs/:userId",
+  requireAuth,
+  checkUser,
+  BlogController.get_blog_profile
+);
 
 module.exports = router;

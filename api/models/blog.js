@@ -8,10 +8,12 @@ const blogSchema = mongoose.Schema({
   content: { type: String, required: true },
   blogImage: { type: String, data: Buffer, required: true },
   author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  update: { type: Date, default: Date.now() },
+  update: { type: Date },
 });
+
+blogSchema.set("timestamps", true);
 blogSchema.virtual("createUpdate").get(() => {
-  return moment(this.update).format("LL");
+  return moment(this.createdAt).format("LL");
 });
 
 module.exports = mongoose.model("Blog", blogSchema);

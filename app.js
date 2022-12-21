@@ -5,8 +5,8 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 let flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
-var fs = require("fs");
-var path = require("path");
+const expressLayouts = require("express-ejs-layouts");
+const path = require("path");
 // protect route
 const { requireAuth, checkUser } = require("./api/middleware/authMiddleware");
 // mongoose
@@ -35,6 +35,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 
+// admin
+app.use(expressLayouts);
 // CORS
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
