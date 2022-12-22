@@ -31,9 +31,15 @@ app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/public", express.static("public"));
+// map 2d
 app.get("/map", (req, res) => {
-  res.sendFile("views/testLayercontrol/main.html", { root: __dirname });
+  res.sendFile("views/main.html", { root: __dirname });
 });
+// map 3d
+app.get("/map3d", (req, res) => {
+  res.sendFile("views/index.html", { root: __dirname });
+});
+
 app.use(express.json());
 app.use(cookieParser());
 
