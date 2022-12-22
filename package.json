@@ -31,6 +31,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.3.0",
     "nodemon": "^2.0.20",
+    "toastify-js": "^1.12.0",
     "tslib": "^2.4.1",
     "validation": "^0.0.1",
     "validator": "^13.7.0"

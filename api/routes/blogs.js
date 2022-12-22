@@ -57,7 +57,7 @@ router.patch("/blogs/:blogId", BlogController.blogs_update_blog);
 router.post("/blogs/delete", BlogController.blogs_delete_blog);
 
 //detail blog
-router.get("/blogs/profile/:blogId", BlogController.blogs_getdetail);
+router.get("/profile/:blogId", BlogController.blogs_getdetail);
 
 // profile user blog
 router.get(

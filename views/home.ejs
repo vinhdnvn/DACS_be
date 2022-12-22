@@ -79,7 +79,7 @@
                     <li
                       class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
                     >
-                      <a href="/2Dmap">2D Map</a>
+                      <a href="/map">2D Map</a>
                     </li>
                     <li
                       class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
@@ -99,11 +99,7 @@
               >
                 <a href="/blogs">blog</a>
               </li>
-              <li
-                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
-              >
-                <a href="/contact">contact</a>
-              </li>
+              
               <!-- <li class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
     lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
     lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
@@ -132,7 +128,7 @@
                     <div
                       class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
                     >
-                    <a href="/profile"><span>Profile</span></a>
+                    <a href="/blogs/<%=user._id%>"><span>Profile</span></a>
                     </div>
                     <div
                       class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
@@ -192,7 +188,7 @@
                   VietNam Korean University
                 </div>
 
-                <a href="/2Dmap">
+                <a href="/map">
                   <button
                     class="tracking-widest uppercase text-xl bg-white text-lime-700 outline-none px-6 py-[18px] font-bold hover:bg-slate-200"
                   >
@@ -595,23 +591,19 @@
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/2Dmap">Digital Map</a>
+                  <a href="/map">Digital Map</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/group">Events</a>
+                  <a href="/events">Events</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/contests">Blogs</a>
+                  <a href="/blogs">Blogs</a>
                 </li>
-                <li
-                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
-                >
-                  <a href="/contact/">Contact</a>
-                </li>
+                
               </ul>
             </div>
             <div class="basis-1/7 text-sm text-gray-400">

@@ -56,14 +56,12 @@
                 </div>
               </li>
               <li class="top-menu-item">
-                <a href="/group/">club&groups</a>
+                <a href="/events">events</a>
               </li>
               <li class="top-menu-item">
-                <a href="/contests/">contests</a>
+                <a href="/blogs">blogs</a>
               </li>
-              <li class="top-menu-item">
-                <a href="/contact/">contact</a>
-              </li>
+
               <!-- <li class="top-menu-item top-menu-item-active">
                             <a href="https://github.com/dangnha" target="blank">dangnha</a>
                         </li> -->
@@ -127,37 +125,59 @@
 
         <!-- Body page -->
         <div id="body-page" class="mt-[150px] mb-[120px] flex flex-row gap-20">
-          <div class="flex justify-center left-[50%]">
-            <div class="">
-              <form
-                action="/addblog"
-                method="post"
-                enctype="multipart/form-data"
-              >
+          <div class="w-[100vw] flex justify-center items-center">
+            <form
+              action="/addblog"
+              class="flex flex-col gap-3"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="uppercase text-4xl font-bold text-center">
+                create your blog about vku
+              </div>
+              <label for="blogName">
+                Name of your blog:
+                <input
+                  type="text"
+                  name="name"
+                  id="blogName"
+                  class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600border-2 border-solid border-black"
+                  placeholder="Name of your blog"
+                />
+              </label>
+
+              <label for="description" class="mt-4">
+                Short description of your blog:
+                <input
+                  id="description"
+                  type="text"
+                  placeholder="Description"
+                  name="description"
+                  class="italic text-sm font-normal w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                />
+              </label>
+              <div class="flex flex-row gap-8">
                 <div class="mt-4">
                   <label for="blogTypes">Choose a Type of Blog :</label>
                   <input
-                    class="border-4 border-black"
+                    class="border-2 border-black border-solid focus:outline-none focus:ring-1 focus:ring-blue-600"
                     type="text"
                     list="blog_Type"
                     id="blogTypes"
                     name="blogType"
                   />
+
                   <datalist id="blog_Type">
                     <option value="Technology"></option>
-                    <option value="Sport"></option>
+                    <option value="Science"></option>
+                    <option value="University"></option>
+                    <option value="Lecturer"></option>
                     <option value="Student"></option>
                     <option value="Event"></option>
-                    <option value="Lecturer"></option>
+                    <option value="VKU's club"></option>
+                    <option value="Sport"></option>
+                    <option value="Other"></option>
                   </datalist>
-                </div>
-                <div class="mt-4">
-                  <input
-                    type="text"
-                    placeholder="Description"
-                    name="description"
-                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
                 </div>
 
                 <div class="mt-4">
@@ -168,35 +188,35 @@
                     placeholder="blogImagess"
                     name="blogImage"
                     required
-                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                    class="border-2 border-black border-solid focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
                 </div>
-                <div class="mt-4">
-                  <input
-                    type="text"
-                    placeholder="Blog's Content"
-                    name="content"
-                    required
-                    class="w-[70vw] h-[40vh] px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
-                </div>
-                <div class="mt-4 flex">
-                  <button
-                    type="submit"
-                    class="text-white bg-blue-600 rounded-lg hover:bg-blue-900"
-                  >
-                    Add Blog
-                  </button>
-                </div>
-              </form>
-            </div>
+              </div>
+              <div class="mt-4">
+                <textarea
+                  type="text"
+                  placeholder="Blog's Content"
+                  name="content"
+                  required
+                  class="text-sm text-black w-[70vw] h-[40vh] px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                >
+                </textarea>
+              </div>
+              <div class="mt-4 flex">
+                <button
+                  type="submit"
+                  class="px-6 py-[18px] shadow-md uppercase text-white bg-black text-xs leading-[18px] tracking-widest font-bold text-center cursor-pointer flex flex-row justify-center items-center hover:text-lime-500 hover:bg-slate-100"
+                >
+                  Add Blog
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 
         <!-- footer -->
 
         <div class="footer w-full h-[350px] bg-white wow">
-          <hr class="mb-6" />
           <div
             class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
           >
@@ -235,22 +255,17 @@
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/2Dmap">Digital Map</a>
+                  <a href="/map">Digital Map</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/group">Club&Groups</a>
+                  <a href="/events">Events</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/contests">Contests</a>
-                </li>
-                <li
-                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
-                >
-                  <a href="/contact/">Contact</a>
+                  <a href="/blogs">Blogs</a>
                 </li>
               </ul>
             </div>
@@ -263,7 +278,7 @@
               <ul class="flex flex-col justify-center items-center">
                 <li class="max-h-[150px] max-w-[150px]">
                   <a href="https://vku.udn.vn/" target="blank"
-                    ><img src="./img/logo-tab.jpg" alt=""
+                    ><img src="../uploads/img/logo-tab.jpg" alt=""
                   /></a>
                 </li>
                 <li class="">
