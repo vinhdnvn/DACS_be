@@ -13,7 +13,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../output.css" type="text/css" rel="stylesheet" />
-    <script src="./main.js" type="text/javascript" async></script>
     <link rel="stylesheet" href="../wow/animate.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Virtual VKU</title>
@@ -159,7 +158,7 @@
         </div>
 
         <!-- Body page -->
-        <div id="body-page" class="mt-[150px] mb-[120px] flex flex-row gap-20">
+        <div id="body-page" class="mt-[150px] mb-[120px] flex flex-row gap-20 ml-16">
           <div class="text-black font-semibold flex flex-col gap-3">
             <div class="basis-[40%]">
               <img
@@ -178,7 +177,7 @@
             </div>
             <div>Your blog: <%- x.length%></div>
           </div>
-          <div class="basis-[60%] flex flex-col gap-8">
+          <div class="basis-[60%] flex flex-col gap-8 mr-5">
             <div class="flex flex-row gap-3">
               <input
                 class="basis-[80%] py-2 px-2 focus:outline-none border-solid border-2 border-green-500 rounded-md"
@@ -189,36 +188,46 @@
                 <a class="py-2 px-8" href="/addblog">New</a>
               </button>
             </div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 overflow-auto h-[520px]">
               <% x.forEach((y)=> { %>
-              <div class="blogItem w-full md:basis-1/2 px-4">
-                <div class="max-w-[370px] mx-auto mb-10">
-                  <div
+              <div class="blogItem w-full md:basis-1/2 flex flex-col items-start">
+                
+                <form action="/profile/<%=y._id%>" method="get">
+                  <button class="blogItem max-w-[370px] mx-auto mb-10 flex flex-col items-start" type="submit">
+                    <div
                     class="rounded overflow-hidden hover:animate-pulse 
-                    hover\:cursor-pointer mb-8 md:h-[400px] h-[275px] w-[275px] 
-                    md:w-[400px] object-cover object-center"
-                  >
+                    hover\:cursor-pointer mb-4 md:h-[250px] h-[200px] w-[275px] 
+                    md:w-[380px] object-cover"
+                    >
                     <img 
                       src="http://localhost:5000/<%=y.blogImage%>" 
                       alt="">
-                </div>
-                  <div>
-                    <span
-                      class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5"
+                    </div>
+                    <div class="flex flex-col items-start">
+                    <div
+                      class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-2"
                     >
                       <%=y.createUpdate%>
-                    </span>
-                    <h3>
+                    </div>
+                    <div>
                       <a
                         href="javascript:void(0)"
                         class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-[#00CC99]"
                       >
                         <%=y.name%>
                       </a>
-                    </h3>
-                    <p class="text-base text-body-color"><%=y.description%></p>
-                  </div>
-                </div>
+                    </div>
+                    <div>
+                    <i class="text-base text-body-color">
+                      <%=y.description%>
+                    </i>
+                    </div>
+                    <!-- <p class="text-base text-body-color"><%=y.content%></p> -->
+                    </div>
+                  </button>
+                </form>
+
+
                 <div class="button flex flex-row gap-4 ml-4 text-center">
                   <a href="">
                   <button
@@ -246,6 +255,7 @@
         <!-- footer -->
 
         <div class="footer w-full h-[350px] bg-white wow">
+          <hr class="my-5">
           <div
             class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
           >

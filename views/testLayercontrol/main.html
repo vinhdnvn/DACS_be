@@ -256,7 +256,7 @@
   <body>
     <div class="container h-full">
       <div
-        class="root font-Karla max-w-screen-2xl text-base mx-auto lg:px-8 bg-white font-medium h-full md:w-[107%]"
+        class="root font-Karla max-w-screen-2xl text-base mx-auto lg:px-8 bg-white font-medium h-full md:w-[100%]"
       >
         <!-- thanh nav -->
         <div
@@ -321,34 +321,47 @@
               id="nav-menu"
               class="hidden basis-3/6 lg:flex lg:flex-col lg:justify-end lg:gap-9 uppercase text-sm text-gray-500"
             >
-              <li class="top-menu-item">
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active"
+              >
                 <a href="/">home</a>
               </li>
-              <li class="top-menu-item relative group">
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300; relative group"
+              >
                 <a>digital map <i class="fa-solid fa-angle-down"></i></a>
                 <div
-                  class="suv-menu absolute shadow-xl bg-white w-[130px] top-0 left-[100px] hidden group-hover:block"
+                  class="suv-menu absolute shadow-xl bg-white w-[130px] top-0 left-[85px] hidden group-hover:block"
                 >
                   <ul class="mx-3">
-                    <li class="top-menu-item text-gray-500">
-                      <a href="#">2D Map</a>
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300; text-gray-500"
+                    >
+                      <a href="map">2D Map</a>
                     </li>
-                    <li class="top-menu-item text-gray-500">
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300; text-gray-500"
+                    >
                       <a href="/3DMap/">3D Map</a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="top-menu-item">
-                <a href="/group">club&groups</a>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/events">Events</a>
               </li>
-              <li class="top-menu-item">
-                <a href="/contests/">contests</a>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/blogs">blog</a>
               </li>
-              <li class="top-menu-item">
-                <a href="/contact/">contact</a>
-              </li>
-              <!-- <li class="top-menu-item top-menu-item-active">
+              <!-- <li class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300; cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300;-active">
                         <a href="https://github.com/dangnha" target="blank">dangnha</a>
                     </li> -->
             </ul>
@@ -378,7 +391,7 @@
         <!-- map 2d -->
         <div
           id="map"
-          class="map z-0 lg:ml-[95px] lg:mt-0 lg:w-[80%] w-[100%] mx-auto h-[86%] lg:h-[100%] shadow-xl relative"
+          class="map z-0 lg:w-[92vw] w-[100vw] lg:ml-[90px] shadow-xl relative"
         ></div>
       </div>
     </div>
