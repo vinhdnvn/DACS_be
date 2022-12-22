@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+  }
+  html, body, #map {
+    height: 100%;
+  }
+  @media only screen and (max-width:375px) {
+.leaflet-control-zoom-in{
+  width: 76px;
+    height: 55px;
+
+}
+.leaflet-control-zoom-out{
+  width: 76px;
+    height: 55px;
+
+}
+.leaflet-bar-part .leaflet-bar-part-single{
+  width: 76px;
+  height: 55px;
+}
+.leaflet-control-locate-location-arrow{
+  margin: 19px;
+}
+  }
+  @media only screen and (min-width: 768px) {
+    
+  }
+  #geofile {
+    margin: 0 20px;
+    font-size: 16px;
+    border: 2px solid #1978cf;
+    box-shadow: 0 0 8px #999;
+  }
+  .leaflet-routing-container{
+      display: none;
+  }
+  .leaflet-control-geocoder{
+    display: none;
+  } 
+  .map{
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    
+  }
+  #map-3d {
+    width: 70px;
+    height: 56px;
+    z-index: 0;
+  }
+  .search-input{
+    display: block !important;
+  }
+  /* .leaflet-interactive
+{
+  display: none;
+}
+  */
+  .search-tip{
+  list-style-type: none;
+  padding-left: 0px;
+  }
+  .search-tip:hover{
+cursor: pointer;
+  }
+  a.search-cancel{
+    display: none !important;
+  }
+  .search-tooltip{
+    background-color: #999;
+    margin-top: 0px;
+  }
+  /* .startBtn {
+    background-color: red;
+  } */
+  /* start Btn on map */
+  .startBtn {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .startBtn:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .startBtn:hover {
+    background-color: #2c974b;
+  }
+  
+  .startBtn:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .startBtn:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+  .startBtn:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }
+  /* destBtn on map */
+  .destBtn {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .destBtn:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .destBtn:hover {
+    background-color: #2c974b;
+  }
+  
+  .destBtn:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .destBtn:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+  .destBtn:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }
+  /* reset Btn */
+  .resBtn {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .resBtn:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .resBtn:hover {
+    background-color: #2c974b;
+  }
+  
+  .resBtn:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .resBtn:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+  .resBtn:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }

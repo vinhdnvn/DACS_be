@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 let flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
 const expressLayouts = require("express-ejs-layouts");
-const path = require("path");
 // protect route
 const { requireAuth, checkUser } = require("./api/middleware/authMiddleware");
 // mongoose
@@ -18,6 +17,7 @@ const eventRoutes = require("./api/routes/events");
 const userRoutes = require("./api/routes/users");
 const blogRoutes = require("./api/routes/blogs");
 const authRoutes = require("./api/routes/authRoutes");
+const mapRoutes = require("./api/routes/map");
 
 // connect to mongoose
 mongoose.connect(
@@ -31,7 +31,10 @@ app.use("/uploads", express.static("uploads"));
 // body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
+app.get("/map", (req, res) => {
+  res.sendFile("views/testLayercontrol/main.html", { root: __dirname });
+});
 app.use(express.json());
 app.use(cookieParser());
 
@@ -65,6 +68,9 @@ app.use(blogRoutes);
 // login,signup form
 app.use(authRoutes);
 
+// send file map 2d
+app.use(mapRoutes);
+
 // hanlde error of server
 app.use((req, res, next) => {
   const error = new Error("Not Found");
@@ -83,6 +89,7 @@ app.use((error, req, res, next) => {
 app.use(flash());
 app.set("view engine", "ejs");
 app.set("views", "views");
+// app.use();
 // // current user
 // app.get("*", checkUser);
 module.exports = app;
