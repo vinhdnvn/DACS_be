@@ -39,7 +39,6 @@ exports.events_get_all = (req, res, next) => {
     .populate("postedBy", "email")
     .then((x) => {
       res.render("event.ejs", { x });
-      console.log(postedBy.email);
     })
     .catch((y) => {
       console.log(y);
@@ -51,8 +50,6 @@ exports.events_get_addEvent = (req, res, next) => {
 };
 
 exports.events_post_addEvent = (req, res, next) => {
-  // console.log(req.file);
-
   const event = new Event({
     _id: new mongoose.Types.ObjectId(),
     postedBy: req.body.email,
@@ -88,6 +85,31 @@ exports.events_delete_event = (req, res, next) => {
       res.redirect("/events");
     }
   });
+};
+
+exports.events_post_addEventAdmin = (req, res, next) => {
+  const event = new Event({
+    _id: new mongoose.Types.ObjectId(),
+    postedBy: req.body.email,
+    name: req.body.name,
+    locateAt: req.body.locateAt,
+    update: req.body.update,
+    eventType: req.body.eventType,
+    note: req.body.note,
+    eventImage: req.file.path.replace(/\\/g, "/"),
+  });
+
+  event
+    .save()
+    .then((result) => {
+      res.redirect("/admin/forms");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 };
 
 exports.events_get_event = (req, res, next) => {
