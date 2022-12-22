@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="../uploads/logo-tab.jpg" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link rel="stylesheet" href="./wow/animate.css" />
+
+    <title>Virtual VKU</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="">
+    <!-- <div class="">
       <ul>
         <% if (user) { %>
         <li>Welcome <%= user.email %> !</li>
@@ -21,6 +32,702 @@
 
         <% } %>
       </ul>
+    </div> -->
+    <div>
+      <div
+        class="root font-Karla max-w-screen-2xl text-base mx-auto md:px-8 bg-white font-medium"
+      >
+        <!-- Header -->
+        <div
+          class="header py-6 mx-auto fixed top-0 bg-white left-0 right-0 z-50 shadow-xl"
+        >
+          <div class="nav flex flex-row justify-between items-center relative">
+            <div
+              class="logo basic-2/6 text-center text-3xl cursor-pointer px-7 lg:px-24"
+            >
+              <a class="flex flex-col justify-center items-center" href="/">
+                <div class="font-semibold text-lime-500">Virtual</div>
+                <div class="flex flex-row">
+                  <div class="uppercase font-black text-red-600">v</div>
+                  <div class="uppercase font-black text-yellow-400">k</div>
+                  <div class="uppercase font-black text-blue-600">u</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- navigation -->
+
+            <ul
+              id="nav-menu"
+              class="hidden basis-3/6 lg:flex lg:justify-end lg:gap-9 uppercase text-sm text-gray-500"
+            >
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active"
+              >
+                <a href="/">home</a>
+              </li>
+              <li
+                id="digitial-map"
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 relative group"
+              >
+                <span>digital map <i class="fa-solid fa-angle-down"></i></span>
+                <div
+                  id="selection"
+                  class="suv-menu absolute shadow-xl bg-white w-[130px] top-9 hidden group-hover:block"
+                >
+                  <ul class="mx-3">
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
+                    >
+                      <a href="/2Dmap">2D Map</a>
+                    </li>
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
+                    >
+                      <a href="/3DMap">3D Map</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/events">Events</a>
+              </li>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/blogs">blog</a>
+              </li>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/contact">contact</a>
+              </li>
+              <!-- <li class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active">
+                            <a href="https://github.com/dangnha" target="blank">dangnha</a>
+                        </li> -->
+            </ul>
+
+            <!-- User -->
+          
+            <div id="user" class="basis-2/6 lg:basis-1/6 hover:cursor-pointer">
+             
+              <div>
+                <% if (user) { %>
+                  <div class="w-12 h-12 bg-black rounded-full"></div>
+                <div
+                  id="user-interface"
+                  class="hidden w-[200px] h-[120px] bg-white absolute top-14 shadow-inner"
+                >
+                  <div class="px-3 py-3">
+                    <span><%= user.email %></span>
+                  </div>
+                  <hr />
+                  <div class="text-sm font-normal">
+                    <div
+                      class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
+                    >
+                    <a href="/profile"><span>Profile</span></a>
+                    </div>
+                    <div
+                      class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
+                    >
+                    <a href="/logout"><span>Logout</span></a>
+                      <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                    </div>
+                  </div>
+                </div>
+                <% } else { %>
+                <div class="flex flex-row gap-2">
+                  <div class="px-2 py-1 bg-black text-white hover:bg-gray-200 hover:text-black"><a href="/login">Login</a></div>
+                  <div class="px-2 py-1 bg-black text-white hover:bg-gray-200 hover:text-black"><a href="/signup">SignUp</a></div></div>
+                <% } %>
+                </div>
+                
+              </div>
+            </div>
+
+            <!-- Menu hidden -->
+            <div
+              class="menu-hidden p-3 basis-1/6 lg:hidden md:px-5 flex items-center cursor-pointer"
+            >
+              <svg
+                id="nav-menu-toggle"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body page -->
+        <div id="body-page" class="mt-[130px] mb-[120px]">
+          <!-- Slide -->
+          <div
+            class="wow bounceInUp slide h-[530px] bg-[url(../uploads/img/map-slider.jpg)] bg-cover bg-no-repeat bg-center"
+          >
+            <div
+              class="w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50"
+            >
+              <div class="text-lime-200 text-center">
+                <div class="tracking-widest uppercase text-2xl opacity-80">
+                  A digital map of
+                </div>
+                <div class="md:text-5xl text-4xl my-3">
+                  VietNam Korean University
+                </div>
+
+                <a href="/2Dmap">
+                  <button
+                    class="tracking-widest uppercase text-xl bg-white text-lime-700 outline-none px-6 py-[18px] font-bold hover:bg-slate-200"
+                  >
+                    visit now
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- break page -->
+          <div class="my-16 flex justify-center items-center wow slideInRight">
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+            <div
+              class="text-xs mx-4 uppercase leading-4 text-center font-medium tracking-widest text-stone-500"
+            >
+              Introduce Our university
+            </div>
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+          </div>
+
+          <!-- content -->
+          <div
+            class="wow slideInRight content-video flex lg:flex-row flex-col justify-center mx-auto items-center gap-10 xl:w-[65%] w-[90%]"
+          >
+            <div class="basis-1/2">
+              <!-- <iframe  src="https://www.youtube.com/embed/oT47WpwVFOc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> -->
+              <iframe
+                class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[350px] mx-auto"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/hOs-T-XFlFI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div
+              class="basis-1/2 w-full h-full flex flex-col justify-center items-center lg:text-left text-center"
+            >
+              <div
+                class="w-full text-3xl mb-6 leading-10 font-normal lg:mt-0 mt-7"
+              >
+                Vietnam Korea University of information and communication
+                technology
+              </div>
+              <div class="text-base mb-6 text-gray-450 opacity-50 leading-7">
+                As an institution of training, scientific research, technology
+                transfer, innovation, entrepreneurship, serving the large and
+                prestigious community of the whole country in the fields of
+                information technology, communication and other fields. related
+                to the application-oriented university model; Smart, modern
+                school with advanced management methods to provide high-quality
+                human resources, well meet labor needs in the period of
+                international integration and industrial revolution 4.0.
+              </div>
+              <!-- <div class="relative">
+                            <a class="font-light text-base text-coffee-400 hover:text-coffee-600 after:absolute after:bottom-0 after:left-0 after:bg-coffee-100 after:h-0.5 after:w-full hover:after:bg-coffee-200
+                             after:duration-400 after:transition-all after:ease-in-out" href="">Read the full Story</a>
+                        </div> -->
+            </div>
+          </div>
+
+          <!-- break page -->
+          <div class="my-16 flex justify-center items-center wow slideInLeft">
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+            <div
+              class="text-xs mx-4 uppercase leading-4 text-center font-medium tracking-widest text-stone-500"
+            >
+              Events of vku
+            </div>
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+          </div>
+
+          <!-- club & groups in vku-->
+          <div
+            class="feature-mugs w-[90%] xl:w-[65%] mx-auto mb-24 wow slideInLeft"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-4 gap-8">
+              <div class="clb-tag">
+                <div
+                  class="relative group z-10 h-[400px] bg-[url(../uploads/img/logo-hih.jpg)] bg-cover bg-no-repeat bg-center mb-9"
+                >
+                  <a class="z-20" href="#" alt="dangnha">
+                    <div
+                      class="w-full h-full hover:bg-slate-900 hover:opacity-10 hover:transition-all hover:ease-in-out hover:duration-400"
+                    ></div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/Tuthien.HandInHandVietHan"
+                    alt="dangnha"
+                    target="blank"
+                  >
+                    <div
+                      class="hidden group-hover:block text-while bg-blue-400 group-hover:animate-fadeIn z-40 absolute bottom-4 left-5 right-5 cursor-pointer px-6 py-[18px] shadow-md uppercase text-white bg-black text-xs leading-[18px] tracking-widest font-bold text-center-page"
+                    >
+                      <i class="fa-brands fa-facebook"></i> hand in hand
+                    </div>
+                  </a>
+                </div>
+
+                <a class="w-full cursor-pointer">
+                  <div
+                    class="text-center mb-4 text-xl leading-7 hover:text-lime-500 uppercase"
+                    href="#"
+                  >
+                    hand in hand
+                  </div>
+                </a>
+              </div>
+              <div class="clb-tag">
+                <div
+                  class="relative group z-10 h-[400px] bg-[url(../uploads/img/logo-media.jpg)] bg-cover bg-no-repeat bg-center mb-9"
+                >
+                  <a class="z-20" href="#" alt="dangnha">
+                    <div
+                      class="w-full h-full hover:bg-slate-900 hover:opacity-10 hover:transition-all hover:ease-in-out hover:duration-400"
+                    ></div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/vkumedia/?ref=page_internal"
+                    alt="dangnha"
+                    target="blank"
+                  >
+                    <div
+                      class="hidden group-hover:block text-while bg-blue-400 group-hover:animate-fadeIn z-40 absolute bottom-4 left-5 right-5 cursor-pointer px-6 py-[18px] shadow-md uppercase text-white bg-black text-xs leading-[18px] tracking-widest font-bold text-center-page"
+                    >
+                      <i class="fa-brands fa-facebook"></i>media
+                    </div>
+                  </a>
+                </div>
+
+                <a class="w-full cursor-pointer">
+                  <div
+                    class="text-center mb-4 text-xl leading-7 hover:text-lime-500 uppercase"
+                    href="#"
+                  >
+                    vku media
+                  </div>
+                </a>
+              </div>
+              <div class="clb-tag">
+                <div
+                  class="relative group z-10 h-[400px] bg-[url(../uploads/img/logo-esport.jpg)] bg-cover bg-no-repeat bg-center mb-9"
+                >
+                  <a class="z-20" href="#" alt="dangnha">
+                    <div
+                      class="w-full h-full hover:bg-slate-900 hover:opacity-10 hover:transition-all hover:ease-in-out hover:duration-400"
+                    ></div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/clbesportvku"
+                    alt="dangnha"
+                    target="blank"
+                  >
+                    <div
+                      class="hidden group-hover:block text-while bg-blue-400 group-hover:animate-fadeIn z-40 absolute bottom-4 left-5 right-5 cursor-pointer px-6 py-[18px] shadow-md uppercase text-white bg-black text-xs leading-[18px] tracking-widest font-bold text-center-page"
+                    >
+                      <i class="fa-brands fa-facebook"></i>vku esports
+                    </div>
+                  </a>
+                </div>
+
+                <a class="w-full cursor-pointer">
+                  <div
+                    class="text-center mb-4 text-xl leading-7 hover:text-lime-500 uppercase"
+                    href="#"
+                  >
+                    VKU esports
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="w-full max-h-[60px] flex justify-center mt-6">
+              <a href="/group" class="mx-auto">
+                <button
+                  class="px-6 py-[18px] shadow-md uppercase text-white bg-black text-xs leading-[18px] tracking-widest font-bold text-center cursor-pointer flex flex-row justify-center items-center hover:text-lime-500 hover:bg-slate-100"
+                >
+                  <span>View more </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- break page -->
+          <div class="my-16 flex justify-center items-center wow slideInRight">
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+            <div
+              class="text-xs mx-4 uppercase leading-4 text-center font-medium tracking-widest text-stone-500"
+            >
+              Blogs in vku
+            </div>
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+          </div>
+
+          <!-- Contests -->
+          <div
+            class="wow slideInRight competitions w-[90%] xl:w-[65%] mx-auto mb-2 lg:mb-24 grid lg:grid-cols-2 grid-row-2 gap-12"
+          >
+            <div
+              class="basis-1/2 flex flex-col gap-6 justify-center lg:text-left text-center"
+            >
+              <div class="text-2xl">
+                Outstanding contests for students of VKU
+              </div>
+              <div class="text-lg">
+                At Vietnam - Korea University, in addition to an intensive
+                training program in information technology, students also
+                participate in many large playgrounds, through which students
+                can both experience and learn at the same time. to improve their
+                professional skills & soft skills.
+              </div>
+              <div class="text-sm">
+                If you want to learn more about contests, let's click this
+                button.
+              </div>
+              <div
+                class="w-full min-h-[60px] flex lg:justify-start justify-center"
+              >
+                <a href="/contests" class="">
+                  <button
+                    class="px-6 py-[18px] shadow-md uppercase text-white bg-black text-xs leading-[18px] tracking-widest font-bold text-center cursor-pointer flex flex-row justify-center items-center hover:text-lime-500 hover:bg-slate-100"
+                  >
+                    <span>View more </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div
+              class="basis 1/2 grid lg:grid-row-2 md:grid-col-3 gap-5 lg:col-start-2 row-start-1"
+            >
+              <div
+                class="hover:cursor-pointer hover:animate-pulse animated hover:zoomIn h-[205px] rounded-xl bg-[url(../uploads/img/comp-bwd.jpg)] bg-cover bg-no-repeat bg-center"
+              ></div>
+              <div class="grid grid-cols-2 gap-5">
+                <div
+                  class="hover:cursor-pointer hover:animate-pulse hidden md:block h-[205px] rounded-xl bg-[url(../uploads/img/comp-rbc.jpg)] bg-cover bg-no-repeat bg-center"
+                ></div>
+                <div
+                  class="hover:cursor-pointer hover:animate-pulse hidden md:block h-[205px] rounded-xl bg-[url(../uploads/img/comp-pisi.jpg)] bg-cover bg-no-repeat bg-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- break page -->
+          <div class="my-16 flex justify-center items-center wow bounceInDown">
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+            <div
+              class="text-xs mx-4 uppercase leading-4 text-center font-medium tracking-widest text-stone-500"
+            >
+              members of our team
+            </div>
+            <div class="w-9 h-[1px] bg-gray-200"></div>
+          </div>
+
+          <!-- members -->
+
+          <div
+            class="flex flex-col justify-center items-center mb-10 wow bounceInDown"
+          >
+            <div class="uppercase text-3xl font-bold mb-14">pencil group</div>
+
+            <div
+              class="flex flex-col md:flex-row gap-7 xl:w-[65%] w-[90%] md:h-[500px]"
+            >
+              <div
+                class="hover:cursor-pointer hover:animate-pulse w-full h-[400px] shadow-xl"
+              >
+                <div
+                  class="mx-auto w-[200px] h-[200px] bg-[url(../uploads/img/vinh-avt.jpg)] bg-cover bg-no-repeat bg-center mb-6"
+                ></div>
+                <div class="text-base font-extrabold mb-6 text-center">
+                  Nguyễn Văn Thành Vinh (Leader)
+                </div>
+                <div class="text-sm mb-3 text-center">
+                  21GIT student, freshman of VKU
+                </div>
+                <div class="flex flex-row gap-2 justify-center items-center">
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100006491119621"
+                    target="blank"
+                    class="cursor-pointer"
+                    ><i class="fa-brands fa-facebook"></i
+                  ></a>
+                  <a
+                    href="mailto:vinhnvt.21it@vku.udn.vn"
+                    target="blank"
+                    class="cursor-pointer"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></a>
+                </div>
+              </div>
+
+              <div
+                class="hover:cursor-pointer hover:animate-pulse w-full h-[400px] shadow-xl"
+              >
+                <div
+                  class="mx-auto w-[200px] h-[200px] bg-[url(../uploads/img/nha-avt.jpg)] bg-cover bg-no-repeat bg-center mb-6"
+                ></div>
+                <div class="text-base font-extrabold mb-6 text-center">
+                  Nguyễn Đăng Nhã
+                </div>
+                <div class="text-sm mb-3 text-center">
+                  21GIT student, freshman of VKU
+                </div>
+                <div class="flex flex-row gap-2 justify-center items-center">
+                  <a
+                    href="https://www.facebook.com/hantu1606/"
+                    target="blank"
+                    class="cursor-pointer"
+                    ><i class="fa-brands fa-facebook"></i
+                  ></a>
+                  <a
+                    href="mailto:nhand.21it@vku.udn.vn"
+                    target="blank"
+                    class="cursor-pointer"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- background const -->
+          <div
+            class="wow parallax-bg h-[400px] mb-24 bg-fixed bg-[url(../uploads/img/overview.jpg)] bg-cover bg-no-repeat bg-center w-[100vw] relative left-[calc(-50vw_+_50%)]"
+          ></div>
+        </div>
+
+        <!-- footer -->
+
+        <div class="footer w-full h-[350px] bg-white wow">
+          <div
+            class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
+          >
+            <div class="basis-5/7 flex flex-col">
+              <div class="text-xl mb-4 font-bold text-center lg:text-left">
+                Vietnam Korea University of information and communication
+                technology
+              </div>
+              <div
+                class="text-sm mb-12 text-gray-500 opacity-90 text-center lg:text-left"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="pl-1"
+                  >470 Đường Trần Đại Nghĩa, Hoà Hải, Ngũ Hành Sơn, Đà
+                  Nẵng.</span
+                >
+              </div>
+              <div
+                class="text-sm text-center lg:text-left mb-4 text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+              >
+                University in Vietnam
+              </div>
+            </div>
+            <div class="basis-1/7">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-4"
+              >
+                MENU
+              </div>
+              <ul class="flex flex-col gap-2">
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/">Home</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/2Dmap">Digital Map</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/group">Events</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/contests">Blogs</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/contact/">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="basis-1/7 text-sm text-gray-400">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-2"
+              >
+                units
+              </div>
+              <ul class="flex flex-col justify-center items-center">
+                <li class="max-h-[150px] max-w-[150px]">
+                  <a href="https://vku.udn.vn/" target="blank"
+                    ><img src="../uploads/img/logo-tab.jpg" alt=""
+                  /></a>
+                </li>
+                <li class="">
+                  <div
+                    class="logo basic-2/6 text-center text-3xl cursor-pointer"
+                  >
+                    <a
+                      class="flex flex-col justify-center items-center"
+                      href="/"
+                    >
+                      <div class="font-semibold text-lime-500">Virtual</div>
+                      <div class="flex flex-row">
+                        <div class="uppercase font-black text-red-600">v</div>
+                        <div class="uppercase font-black text-yellow-400">
+                          k
+                        </div>
+                        <div class="uppercase font-black text-blue-600">u</div>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="basis-1/7">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-4"
+              >
+                CONTACT US
+              </div>
+              <div
+                class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400 mb-4"
+              >
+                We’re Always Happy to Help
+              </div>
+              <div
+                class="text-xl text-center lg:text-left text-black leading-7 hover:text-lime-400 mb-16"
+              >
+                <a href="">nhand.21it@vku.udn.vn</a>
+              </div>
+              <div
+                class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+              >
+                Powered by Pencil group
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script src="./wow/wow.min.js" type="text/javascript"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <script>
+      // alert('Welcome to my website')
+
+const topMenu = document.getElementById('nav-menu');
+const toggleTopMenuIcon = document.getElementById('nav-menu-toggle');
+
+document.addEventListener('click', (e) => {
+    if (toggleTopMenuIcon.contains(e.target)) {
+        topMenu.classList.toggle('hidden')
+        topMenu.classList.toggle('top-menu-expanded')
+    } else {
+        if (topMenu.classList.contains('top-menu-expanded')) {
+            topMenu.classList.remove('top-menu-expanded')
+            topMenu.classList.add('hidden')
+        }
+    }
+})
+
+var userAvt = document.getElementById('user');
+
+var userIn = document.getElementById('user-interface')
+
+
+document.addEventListener('click', (e) => {
+    if (userAvt.contains(e.target)) {
+        userIn.classList.toggle('hidden')
+        userIn.classList.toggle('block')
+    } else {
+        if (userIn.classList.contains('block')) {
+            userIn.classList.remove('block')
+            userIn.classList.add('hidden')
+        }
+    }
+})
+
+var maps = document.getElementById('digitial-map');
+
+var slMap = document.getElementById('selection')
+
+
+document.addEventListener('click', (e) => {
+    if (maps.contains(e.target)) {
+        slMap.classList.toggle('hidden')
+        slMap.classList.toggle('block')
+    } else {
+        if (slMap.classList.contains('block')) {
+            slMap.classList.remove('block')
+            slMap.classList.add('hidden')
+        }
+    }
+})
+    </script>
   </body>
 </html>
