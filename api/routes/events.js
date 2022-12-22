@@ -56,6 +56,12 @@ router.post(
   EventController.events_post_addEvent
 );
 
+router.post(
+  "/addeventAdmin",
+  upload.single("eventImage"),
+  EventController.events_post_addEventAdmin
+);
+
 router.get("/events/:eventId", EventController.events_get_event);
 
 router.post("/events/delete", EventController.events_delete_event);

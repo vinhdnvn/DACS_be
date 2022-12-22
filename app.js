@@ -10,6 +10,10 @@ const { requireAuth, checkUser } = require("./api/middleware/authMiddleware");
 // mongoose
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
+// models
+const User = require("./api/models/user");
+const Blog = require("./api/models/blog");
+const Event = require("./api/models/event");
 
 // here import link Routes
 const eventRoutes = require("./api/routes/events");
@@ -38,6 +42,32 @@ app.get("/map", (req, res) => {
 // map 3d
 app.get("/map3d", (req, res) => {
   res.sendFile("views/index.html", { root: __dirname });
+});
+// admin
+app.get("/admin", (req, res) => {
+  User.find({}, (err, user) => {
+    if (err) {
+      console.log(err);
+    } else {
+      Blog.find({}, (err, blog) => {
+        if (err) {
+          console.log(err);
+        } else {
+          Event.find({}, (err, event) => {
+            if (err) {
+              console.log(err);
+            } else {
+              res.render("admin.ejs", { user: user, blog: blog, event: event });
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
+app.get("/admin/forms", (req, res) => {
+  res.render("forms.ejs");
 });
 
 app.use(express.json());

@@ -109,7 +109,8 @@ exports.get_blog_profile = (req, res, next) => {
 };
 
 exports.blogs_getdetail = (req, res, next) => {
-  Blog.findById({ id: req.params.blogId })
+  var myId = req.params.blogId;
+  Blog.findById({ _id: ObjectID(myId) })
     .then((x) => {
       res.render("blogById.ejs", { x });
     })
