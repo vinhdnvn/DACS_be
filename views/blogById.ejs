@@ -20,273 +20,299 @@
   </head>
 
   <body>
-    <div class="isolate bg-white">
+    <div>
       <div
-        class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        class="root font-Karla max-w-screen-2xl text-base mx-auto md:px-8 bg-white font-medium"
       >
-        <svg
-          class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
-          viewBox="0 0 1155 678"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <!-- Header -->
+        <div
+          class="header py-6 mx-auto fixed top-0 bg-white left-0 right-0 z-50 shadow-xl"
         >
-          <path
-            fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
-            fill-opacity=".3"
-            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-          />
-          <defs>
-            <linearGradient
-              id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
-              x1="1155.49"
-              x2="-78.208"
-              y1=".177"
-              y2="474.645"
-              gradientUnits="userSpaceOnUse"
+          <div class="nav flex flex-row justify-between items-center relative">
+            <div
+              class="logo basic-2/6 text-center text-3xl cursor-pointer px-7 lg:px-24"
             >
-              <stop stop-color="#9089FC"></stop>
-              <stop offset="1" stop-color="#FF80B5"></stop>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div class="px-6 pt-6 lg:px-8">
-        <div>
-          <nav
-            class="flex h-9 items-center justify-between"
-            aria-label="Global"
-          >
-            <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-              <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <img
-                  class="h-8"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                />
+              <a class="flex flex-col justify-center items-center" href="/">
+                <div class="font-semibold text-lime-500">Virtual</div>
+                <div class="flex flex-row">
+                  <div class="uppercase font-black text-red-600">v</div>
+                  <div class="uppercase font-black text-yellow-400">k</div>
+                  <div class="uppercase font-black text-blue-600">u</div>
+                </div>
               </a>
             </div>
-            <div class="flex lg:hidden">
-              <button
-                type="button"
-                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              >
-                <span class="sr-only">Open main menu</span>
-                <!-- Heroicon name: outline/bars-3 -->
-                <svg
-                  class="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
+
+            <!-- navigation -->
+
+            <ul
+              id="nav-menu"
+              class="hidden basis-3/6 lg:flex lg:justify-end lg:gap-9 uppercase text-sm text-gray-500"
+            >
+              <li class="top-menu-item top-menu-item-active">
+                <a href="/">home</a>
+              </li>
+              <li id="digitial-map" class="top-menu-item relative group">
+                <span>digital map <i class="fa-solid fa-angle-down"></i></span>
+                <div
+                  id="selection"
+                  class="suv-menu absolute shadow-xl bg-white w-[130px] top-9 hidden group-hover:block"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12"
-            >
-              <a
-                href="#"
-                class="font-semibold text-gray-900 hover:text-gray-900"
-                >Product</a
-              >
-
-              <a
-                href="#"
-                class="font-semibold text-gray-900 hover:text-gray-900"
-                >Features</a
-              >
-
-              <a
-                href="#"
-                class="font-semibold text-gray-900 hover:text-gray-900"
-                >Marketplace</a
-              >
-
-              <a
-                href="#"
-                class="font-semibold text-gray-900 hover:text-gray-900"
-                >Company</a
-              >
-            </div>
-            <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-              <a
-                href="#"
-                class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                >Log in</a
-              >
-            </div>
-          </nav>
-          <!-- Mobile menu, show/hide based on menu open state. -->
-          <div role="dialog" aria-modal="true">
-            <div
-              focus="true"
-              class="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden"
-            >
-              <div class="flex h-9 items-center justify-between">
-                <div class="flex">
-                  <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
-                    <img
-                      class="h-8"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                      alt=""
-                    />
-                  </a>
+                  <ul class="mx-3">
+                    <li class="top-menu-item text-gray-500">
+                      <a href="/2Dmap/">2D Map</a>
+                    </li>
+                    <li class="top-menu-item text-gray-500">
+                      <a href="/3DMap/">3D Map</a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="flex">
-                  <button
-                    type="button"
-                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                  >
-                    <span class="sr-only">Close menu</span>
-                    <!-- Heroicon name: outline/x-mark -->
-                    <svg
-                      class="h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      aria-hidden="true"
+              </li>
+              <li class="top-menu-item">
+                <a href="/group/">club&groups</a>
+              </li>
+              <li class="top-menu-item">
+                <a href="/contests/">contests</a>
+              </li>
+              <li class="top-menu-item">
+                <a href="/contact/">contact</a>
+              </li>
+              <!-- <li class="top-menu-item top-menu-item-active">
+                            <a href="https://github.com/dangnha" target="blank">dangnha</a>
+                        </li> -->
+            </ul>
+
+            <!-- User -->
+            <div id="user" class="basis-2/6 lg:basis-1/6 hover:cursor-pointer">
+              <div
+                class="md:ml-9 ml-11 user max-w-[44px] h-11 bg-[url(./img/user.jpg)] bg-cover bg-no-repeat bg-center rounded-full relative"
+              >
+                <div
+                  id="user-interface"
+                  class="hidden w-[180px] h-[150px] bg-white absolute top-12 shadow-inner"
+                >
+                  <div class="px-3 py-3">
+                    <span class="text-sm font-normal"> Dang Nha </span>
+                    <span class="text-sm font-medium">
+                      nhand.21it@vku.udn.vn
+                    </span>
+                  </div>
+                  <hr />
+                  <div class="text-sm font-normal">
+                    <div
+                      class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
+                      <span>settings</span>
+                    </div>
+                    <div
+                      class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
+                    >
+                      <a href="/login/"><span>sign out</span></a>
+                      <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y divide-gray-500/10">
-                  <div class="space-y-2 py-6">
-                    <a
-                      href="#"
-                      class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
-                      >Product</a
-                    >
+            </div>
 
-                    <a
-                      href="#"
-                      class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
-                      >Features</a
-                    >
+            <!-- Menu hidden -->
+            <div
+              class="menu-hidden p-3 basis-1/6 lg:hidden md:px-5 flex items-center cursor-pointer"
+            >
+              <svg
+                id="nav-menu-toggle"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
 
-                    <a
-                      href="#"
-                      class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
-                      >Marketplace</a
-                    >
+        <!-- Body page -->
+        <div id="body-page" class="mt-[150px] mb-[120px] flex flex-row gap-20">
+          <div class="text-black font-semibold flex flex-col gap-3">
+            <div class="basis-[40%]">
+              <img
+                class="object-cover w-[400px] h-[400px] rounded-full"
+                src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/320935744_5506417392803368_4952738920705325237_n.jpg?stp=dst-jpg_s1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=DFTaI7aK4xgAX8p_JHZ&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfCm-j4zWLXOjs-8ee6Ajj41fNjugdxTbUO_M2j8gdpwqw&oe=63A65DE4"
+                alt=""
+              />
+            </div>
 
-                    <a
-                      href="#"
-                      class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
-                      >Company</a
+            <div
+              class="py-2 border-2 text-center border-solid border-green-600"
+            >
+              Edit profile
+            </div>
+            <div>Your blog: <%- x.length%></div>
+          </div>
+          <div class="basis-[60%] flex flex-col gap-8">
+            <div class="flex flex-row gap-3">
+              <input
+                class="basis-[80%] py-2 px-2 focus:outline-none border-solid border-2 border-green-500 rounded-md"
+                type="text"
+                placeholder="Your Blog"
+              />
+              <button class="basis-[20%] py-2 text-white bg-black">
+                <a href="">New</a>
+              </button>
+            </div>
+            <div class="grid grid-cols-2">
+              <div class="blogItem w-full md:basis-1/2 px-4">
+                <div class="max-w-[370px] mx-auto mb-10">
+                  <div
+                    class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-8 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(./img/com-sprcc.jpg)] bg-cover bg-no-repeat bg-center"
+                  ></div>
+                  <div>
+                    <span
+                      class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5"
                     >
-                  </div>
-                  <div class="py-6">
-                    <a
-                      href="#"
-                      class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
-                      >Log in</a
-                    >
+                      <%=y.createUpdate%>
+                    </span>
+                    <h3>
+                      <a
+                        href="javascript:void(0)"
+                        class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-[#00CC99]"
+                      >
+                        <%=y.description%>
+                      </a>
+                    </h3>
+                    <p class="text-base text-body-color"><%=y.content%></p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer -->
+
+        <div class="footer w-full h-[350px] bg-white wow">
+          <hr class="mb-6" />
+          <div
+            class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
+          >
+            <div class="basis-5/7 flex flex-col">
+              <div class="text-xl mb-4 font-bold text-center lg:text-left">
+                Vietnam Korea University of information and communication
+                technology
+              </div>
+              <div
+                class="text-sm mb-12 text-gray-500 opacity-90 text-center lg:text-left"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="pl-1"
+                  >470 Đường Trần Đại Nghĩa, Hoà Hải, Ngũ Hành Sơn, Đà
+                  Nẵng.</span
+                >
+              </div>
+              <div
+                class="text-sm text-center lg:text-left mb-4 text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+              >
+                University in Vietnam
+              </div>
+            </div>
+            <div class="basis-1/7">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-4"
+              >
+                MENU
+              </div>
+              <ul class="flex flex-col gap-2">
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/">Home</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/2Dmap">Digital Map</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/group">Club&Groups</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/contests">Contests</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/contact/">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="basis-1/7 text-sm text-gray-400">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-2"
+              >
+                units
+              </div>
+              <ul class="flex flex-col justify-center items-center">
+                <li class="max-h-[150px] max-w-[150px]">
+                  <a href="https://vku.udn.vn/" target="blank"
+                    ><img src="./img/logo-tab.jpg" alt=""
+                  /></a>
+                </li>
+                <li class="">
+                  <div
+                    class="logo basic-2/6 text-center text-3xl cursor-pointer"
+                  >
+                    <a
+                      class="flex flex-col justify-center items-center"
+                      href="/"
+                    >
+                      <div class="font-semibold text-lime-500">Virtual</div>
+                      <div class="flex flex-row">
+                        <div class="uppercase font-black text-red-600">v</div>
+                        <div class="uppercase font-black text-yellow-400">
+                          k
+                        </div>
+                        <div class="uppercase font-black text-blue-600">u</div>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="basis-1/7">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-4"
+              >
+                CONTACT US
+              </div>
+              <div
+                class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400 mb-4"
+              >
+                We’re Always Happy to Help
+              </div>
+              <div
+                class="text-xl text-center lg:text-left text-black leading-7 hover:text-lime-400 mb-16"
+              >
+                <a href="">nhand.21it@vku.udn.vn</a>
+              </div>
+              <div
+                class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+              >
+                Powered by Pencil group
               </div>
             </div>
           </div>
         </div>
       </div>
-      <main>
-        <div class="relative px-6 lg:px-8">
-          <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
-            <div>
-              <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-                <div
-                  class="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                >
-                  <span class="text-gray-600">
-                    Announcing our next round of funding.
-                    <a href="#" class="font-semibold text-indigo-600"
-                      ><span class="absolute inset-0" aria-hidden="true"></span
-                      >Read more <span aria-hidden="true">&rarr;</span></a
-                    >
-                  </span>
-                </div>
-              </div>
-              <div>
-                <h1
-                  class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl"
-                >
-                  Data to enrich your online business
-                </h1>
-                <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                  occaecat fugiat aliqua.
-                </p>
-                <div class="mt-8 flex gap-x-4 sm:justify-center">
-                  <a
-                    href="#"
-                    class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
-                  >
-                    Get started
-                    <span class="text-indigo-200" aria-hidden="true"
-                      >&rarr;</span
-                    >
-                  </a>
-                  <a
-                    href="#"
-                    class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                  >
-                    Live demo
-                    <span class="text-gray-400" aria-hidden="true">&rarr;</span>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-              >
-                <svg
-                  class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
-                  viewBox="0 0 1155 678"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
-                    fill-opacity=".3"
-                    d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
-                      x1="1155.49"
-                      x2="-78.208"
-                      y1=".177"
-                      y2="474.645"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#9089FC"></stop>
-                      <stop offset="1" stop-color="#FF80B5"></stop>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
     </div>
 
     <script src="./wow/wow.min.js" type="text/javascript"></script>
