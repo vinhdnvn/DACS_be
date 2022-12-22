@@ -64,7 +64,12 @@ router.post(
 
 router.get("/events/:eventId", EventController.events_get_event);
 
-router.post("/events/delete", EventController.events_delete_event);
+router.post("/events/delete/:eventId", EventController.events_delete_event);
+
+router.post(
+  "/events/admin/delete/:eventId",
+  EventController.events_delete_eventAdmin
+);
 // update
 router.get("/events/:eventId/edit", EventController.events_getupdate_event);
 router.post("/events/:eventId/edit", EventController.events_update_event);

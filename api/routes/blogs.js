@@ -56,6 +56,11 @@ router.patch("/blogs/:blogId", BlogController.blogs_update_blog);
 
 router.post("/blogs/delete", BlogController.blogs_delete_blog);
 
+router.post(
+  "/blogs/admin/delete/:blogId",
+  BlogController.blogs_delete_blogAdmin
+);
+
 //detail blog
 router.get("/profile/:blogId", BlogController.blogs_getdetail);
 

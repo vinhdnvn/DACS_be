@@ -106,20 +106,15 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-router.delete("/:userId", (req, res, next) => {
-  User.deleteMany({ _id: req.params.userId })
-    .exec()
-    .then((result) => {
-      res.status(200).json({
-        message: "User deleted",
-      });
-    })
-    .catch((err) => {
+router.post("/user/delete/:userId", (req, res, next) => {
+  const id = req.params.userId;
+  User.findByIdAndDelete(id, (err) => {
+    if (err) {
       console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
+    } else {
+      res.redirect("/admin");
+    }
+  });
 });
 
 module.exports = router;

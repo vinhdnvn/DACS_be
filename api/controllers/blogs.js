@@ -100,6 +100,17 @@ exports.blogs_delete_blog = (req, res, next) => {
   });
 };
 
+exports.blogs_delete_blogAdmin = (req, res, next) => {
+  const blog = req.params.blogId;
+  Blog.findByIdAndDelete(blog, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/admin");
+    }
+  });
+};
+
 exports.get_blog_profile = (req, res, next) => {
   Blog.find({ id: ObjectID(req.params.userId) })
     .then((x) => {
