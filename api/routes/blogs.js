@@ -72,4 +72,7 @@ router.get(
   BlogController.get_blog_profile
 );
 
+router.get("/blogs/update/:blogId", requireAuth, BlogController.get_blogupdate);
+router.post("/blogs/update/:blogId", BlogController.blog_updateAdmin);
+
 module.exports = router;

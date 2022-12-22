@@ -53,7 +53,8 @@ exports.blogs_post_blog = (req, res, next) => {
     content: req.body.content,
     blogImage: req.file.path.replace(/\\/g, "/"),
   });
-
+  res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+  res.status(201).json({ user: user._id });
   blog
     .save()
     .then((blogs) => {
@@ -128,4 +129,30 @@ exports.blogs_getdetail = (req, res, next) => {
     .catch((y) => {
       console.log(y);
     });
+};
+
+exports.get_blogupdate = (req, res) => {
+  Blog.findOneAndUpdate(
+    { _id: req.params.blogId },
+    req.body,
+    { new: true },
+    (err, blog) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("formUpdate", { blog: blog });
+      }
+    }
+  );
+};
+
+exports.blog_updateAdmin = (req, res, next) => {
+  Blog.findByIdAndUpdate({ _id: req.params.blogId }, req.body, (err, docs) => {
+    if (err) {
+      console.log(err);
+      next();
+    } else {
+      res.redirect("/admin");
+    }
+  });
 };

@@ -106,9 +106,9 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-router.post("/user/delete/:userId", (req, res, next) => {
-  const id = req.params.userId;
-  User.findByIdAndDelete(id, (err) => {
+router.post("/delete/:userId", (req, res, next) => {
+  const user = req.params.userId;
+  User.findByIdAndDelete(user, (err) => {
     if (err) {
       console.log(err);
     } else {

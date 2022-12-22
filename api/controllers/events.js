@@ -154,7 +154,7 @@ exports.events_getupdate_event = (req, res, next) => {
       if (err) {
         res.status(404).json(err);
       } else {
-        res.render("editEvent", { event: docs });
+        res.render("formEvent", { event: docs });
       }
     }
   );
@@ -168,7 +168,7 @@ exports.events_update_event = async (req, res, next) => {
       if (err) {
         res.status(400).json(err);
       } else {
-        res.redirect("events");
+        res.redirect("/admin");
       }
     }
   );

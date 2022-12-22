@@ -89,7 +89,7 @@ app.use((req, res, next) => {
   next();
 });
 app.get("*", checkUser);
-// home page
+
 app.get("/", checkUser, (req, res) => {
   res.render("home");
 });
@@ -97,7 +97,7 @@ app.get("/", checkUser, (req, res) => {
 // routes which should handle request
 // app.use("/events", eventRoutes);
 app.use(eventRoutes);
-app.use("/user", userRoutes);
+app.use(userRoutes);
 app.use(blogRoutes);
 
 // login,signup form
