@@ -77,12 +77,23 @@ exports.events_post_addEvent = (req, res, next) => {
 };
 
 exports.events_delete_event = (req, res, next) => {
-  const event = req.body._id;
+  const event = req.body.eventId;
   Event.findByIdAndRemove(event, (err) => {
     if (err) {
       console.log(err);
     } else {
       res.redirect("/events");
+    }
+  });
+};
+
+exports.events_delete_eventAdmin = (req, res, next) => {
+  const event = req.params.eventId;
+  Event.findByIdAndRemove(event, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/admin");
     }
   });
 };
