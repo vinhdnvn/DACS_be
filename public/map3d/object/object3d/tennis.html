@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Indoor Tennis</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      /* .KhuHanhChinh{
+            cursor: pointer;
+        } */
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.147.0/three.js"></script>
+    <script src="/public/map3d/js/GLTFLoader.js"></script>
+    <!-- <script src="./ObjectLoader.js"></script> -->
+    <script src="/public/map3d/js/OrbitControls.js"></script>
+    <script src="/public/map3d/js/three_mmi.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src=""></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/public/map3d/js/item.js"></script>
+    <script>
+      let scene, camera, renderer;
+      let modal;
+      let INTERSECTED;
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+      function init() {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xdddddd);
+
+        camera = new THREE.PerspectiveCamera(
+          50.0,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          2000.0
+        );
+        camera.rotation.set(-89.85, -69.24, -90.27);
+        camera.position.x = -21.681;
+        camera.position.y = 11.031;
+        camera.position.z = 0;
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        document.body.appendChild(renderer.domElement);
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.addEventListener("change", renderer);
+
+        hlight = new THREE.AmbientLight(0x000000, 100);
+        scene.add(hlight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        directionalLight.position.set(-17.982, 104.667, -0.366);
+        scene.add(directionalLight);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // skybox;
+        scene.background = new THREE.CubeTextureLoader()
+          .setPath("/public/map3d/img/background/skybox/")
+          .load([
+            "haze_ft.jpg", //ft
+            "haze_bk.jpg", //bk
+            "haze_up.jpg", //up
+            "haze_dn.jpg", //dn
+            "haze_rt.jpg", //rt
+            "haze_lf.jpg", //lf
+          ]);
+
+        let loader = new THREE.GLTFLoader();
+        loader.load(
+          "/public/map3d/object/object3d/tennis.glb",
+          function (gltf) {
+            car = gltf.scene.children[0];
+
+            car.scale.set(1, 1, 1);
+            model = gltf.scene;
+            scene.add(model);
+
+            animate();
+          }
+        );
+      }
+      function animate() {
+        // gltf.rotation.x += 0.05;
+
+        renderer.render(scene, camera);
+
+        requestAnimationFrame(animate);
+      }
+
+      init();
+    </script>
+  </body>
+</html>

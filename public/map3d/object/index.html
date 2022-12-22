@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>model</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      /* .KhuHanhChinh{
+            cursor: pointer;
+        } */
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.147.0/three.js"></script>
+    <script src="./THREEJS file/GLTFLoader.js"></script>
+    <!-- <script src="./ObjectLoader.js"></script> -->
+    <script src="./THREEJS file/OrbitControls.js"></script>
+    <script src="./THREEJS file/three_mmi.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src=""></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="item.js"></script>
+    <!-- <script src=""></script> -->
+    <script>
+      let scene, camera, renderer;
+      let modal;
+      let INTERSECTED;
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+      function init() {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xdddddd);
+
+        camera = new THREE.PerspectiveCamera(
+          40,
+          window.innerWidth / window.innerHeight,
+          1,
+          5000
+        );
+        camera.rotation.y = 90;
+        camera.position.x = 500.0;
+        camera.position.y = 100;
+        camera.position.z = 10.01;
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        document.body.appendChild(renderer.domElement);
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.addEventListener("change", renderer);
+        // controls.autoRotate();
+        //===================== texture loader
+        const textureLoader = new THREE.TextureLoader();
+        const windowBuilding = textureLoader.load(
+          "./THREEJS file/model/textureBuilding.png"
+        );
+
+        hlight = new THREE.AmbientLight(0x000000, 100);
+        scene.add(hlight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        directionalLight.position.set(-17.982, 104.667, -0.366);
+        scene.add(directionalLight);
+        const pointLight1 = new THREE.PointLight(0xffffff, 1);
+        pointLight1.position.set(281.364, 54.1, 169.661);
+        scene.add(pointLight1);
+        const pointLight2 = new THREE.PointLight(0xffffff, 1);
+        pointLight2.position.set(16.238, 72.963, -528.102);
+        scene.add(pointLight2);
+        const spotLight = new THREE.SpotLight(0xffffff, 0.16);
+        spotLight.position.set(-114.158, 401.26, 134.861);
+        const pointLight3 = new THREE.PointLight(0xffffff, 1);
+        pointLight3.position.set(264.972, 69.343, 0);
+        scene.add(pointLight3);
+        const pointLight4 = new THREE.PointLight(0xffffff, 1);
+        pointLight4.position.set(141.956, 112.816, 407.021);
+        scene.add(pointLight4);
+        const pointLight5 = new THREE.PointLight(0xffffff, 1);
+        pointLight5.position.set(-345.581, -1.996, 0.0);
+        scene.add(pointLight5);
+        // create texline
+        var text = document.createElement("text");
+        text.innerHTML = "Click to the building to see view indoor !";
+        text.style.position = "absolute";
+        text.style.width = 500;
+        text.style.height = 500;
+        text.style.backgroundColor = "transparent";
+        text.style.top = "40px";
+        text.style.left = "37%";
+        text.style.fontSize = "25px";
+        text.style.color = "#FFF0F5";
+        text.style.fontFamily = " 'Noto Sans', sans-serif";
+        document.body.appendChild(text);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // skybox;
+        scene.background = new THREE.CubeTextureLoader()
+          .setPath("skybox/")
+          .load([
+            "haze_ft.jpg", //ft
+            "haze_bk.jpg", //bk
+            "haze_up.jpg", //up
+            "haze_dn.jpg", //dn
+            "haze_rt.jpg", //rt
+            "haze_lf.jpg", //lf
+          ]);
+
+        // const nmi = new MouseMeshInteraction(scene,camera);
+        // nmi.update();
+        let loader = new THREE.GLTFLoader();
+        loader.load("./THREEJS file/model/testlan1.glb", function (gltf) {
+          car = gltf.scene.children[0];
+          //  car.material = new THREE.MeshPhongMaterial({map:windowBuilding})
+          congtruong = gltf.scene.children[6];
+
+          car.scale.set(0.5, 0.5, 0.5);
+          model = gltf.scene;
+          scene.add(model);
+
+          // console.log(model);
+          //  window.addEventListener('click', function(){
+          //     alert("da click");
+          //    });
+          animate();
+        });
+
+        // var khuA = scene.getObjectByName('khuA');
+        //           const nmi = new MouseMeshInteraction(scene, camera);
+        //           nmi.addHandler(khuA, 'click', function(mesh){
+        //             console.log("da click khu A");
+        //           })
+        renderer.domElement.addEventListener("click", onClick, false);
+      }
+      function animate() {
+        // gltf.rotation.x += 0.05;
+
+        renderer.render(scene, camera);
+
+        requestAnimationFrame(animate);
+      }
+
+      init();
+
+      function onClick() {
+        event.preventDefault();
+
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+        var intersects = raycaster.intersectObjects(scene.children, true);
+
+        // if ( intersects.length > 0 ) {
+
+        // if ( INTERSECTED != intersects[ 0 ].object ) {
+
+        //   if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+
+        //   INTERSECTED = intersects[ 0 ].object;
+        //   INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+        //   INTERSECTED.material.emissive.setHex( 0xff0000 );
+
+        // }
+
+        // } else {
+
+        // if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+
+        // INTERSECTED = null;
+
+        // }
+        // var congtruong = model.getObjectByName('khuhanhchinh');
+        // var intersects1 = raycaster.intersectObjects(congtruong,true);
+
+        // if (intersects.length > 0) {
+
+        //   console.log( intersects[0]);
+        //   // console.log(intersects[0].object.name)
+
+        // }
+        // var khuhanhchinh = intersects[0].object.name === 'khuhanhchinh';
+        // khuhanhchinh.className=KhuHanhChinh;
+
+        switch (intersects[0].object.name) {
+          //1
+          case "khuhanhchinh":
+            console.log("khuhanhchinh");
+            window.open("/Indoor/khuhanhchinh.html", "_parent").focus();
+
+            break;
+          //2
+          case "khuA":
+            console.log("khuA");
+            window.open("/Indoor/khuA.html", "_parent").focus();
+            break;
+
+          //3
+          case "khuB":
+            console.log("khuB");
+            window.open("/Indoor/khuB.html", "_parent").focus();
+            break;
+          //4
+          case "khuC":
+            console.log("khuC");
+
+            window.open("/Indoor/khuC.html", "_parent").focus();
+            break;
+          //5
+          case "khuD":
+            console.log("khuD");
+            window.open("/Indoor/khuD.html", "_parent").focus();
+            break;
+          //6
+          case "khuE":
+            console.log("khuE");
+            window.open("/Indoor/khuE.html", "_parent").focus();
+            break;
+          //7
+          case "phongdichvu":
+            console.log("phongdichvu");
+            window.open("/Indoor/dichvu.html", "_parent").focus();
+            break;
+          //8
+          case "nhadanang":
+            console.log("nhadanang");
+            window.open("/Indoor/nhadanang.html", "_parent").focus();
+            break;
+          //9
+          case "hoitruongkhuK":
+            console.log("hoitruongkhuK");
+            window.open("/Indoor/hoitruongkhuK.html", "_parent").focus();
+            break;
+          //10
+          case "thuvien":
+            console.log("thuvien");
+            window.open("/Indoor/thuvien.html", "_parent").focus();
+            break;
+          //11
+          case "khuquansu":
+            console.log("khuquansu");
+            window.open("/Indoor/quansu.html", "_parent").focus();
+            break;
+          //12
+          case "sandienkinh":
+            console.log("sandienkinh");
+            window.open("/Indoor/dienkinh.html", "_parent").focus();
+            break;
+          //13
+          case "kitucxa":
+            console.log("kitucxa");
+            window.open("/Indoor/kitucxa.html", "_parent").focus();
+            break;
+          //14
+          case "congtruong":
+            console.log("congtruong");
+            window.open("/Indoor/congtruong.html", "_parent").focus();
+            break;
+          //15
+          case "tennis":
+            console.log("tennis");
+            window.open("/Indoor/tennis.html", "_parent").focus();
+            break;
+          //16
+          case "football":
+            console.log("football");
+            window.open("/Indoor/football.html", "_parent").focus();
+            break;
+          default:
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -5,7 +5,6 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 let flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
-const expressLayouts = require("express-ejs-layouts");
 // protect route
 const { requireAuth, checkUser } = require("./api/middleware/authMiddleware");
 // mongoose
@@ -32,14 +31,20 @@ app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/public", express.static("public"));
+// map 2d
 app.get("/map", (req, res) => {
-  res.sendFile("views/testLayercontrol/main.html", { root: __dirname });
+  res.sendFile("views/main.html", { root: __dirname });
 });
+// map 3d
+app.get("/map3d", (req, res) => {
+  res.sendFile("views/index.html", { root: __dirname });
+});
+
 app.use(express.json());
 app.use(cookieParser());
 
 // admin
-app.use(expressLayouts);
+
 // CORS
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
