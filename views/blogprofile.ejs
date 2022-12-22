@@ -48,69 +48,90 @@
               id="nav-menu"
               class="hidden basis-3/6 lg:flex lg:justify-end lg:gap-9 uppercase text-sm text-gray-500"
             >
-              <li class="top-menu-item top-menu-item-active">
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active"
+              >
                 <a href="/">home</a>
               </li>
-              <li id="digitial-map" class="top-menu-item relative group">
+              <li
+                id="digitial-map"
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 relative group"
+              >
                 <span>digital map <i class="fa-solid fa-angle-down"></i></span>
                 <div
                   id="selection"
                   class="suv-menu absolute shadow-xl bg-white w-[130px] top-9 hidden group-hover:block"
                 >
                   <ul class="mx-3">
-                    <li class="top-menu-item text-gray-500">
-                      <a href="/2Dmap/">2D Map</a>
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
+                    >
+                      <a href="/2Dmap">2D Map</a>
                     </li>
-                    <li class="top-menu-item text-gray-500">
-                      <a href="/3DMap/">3D Map</a>
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
+                    >
+                      <a href="/3DMap">3D Map</a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="top-menu-item">
-                <a href="/group/">club&groups</a>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/events">Events</a>
               </li>
-              <li class="top-menu-item">
-                <a href="/contests/">contests</a>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/blogs">blog</a>
               </li>
-              <li class="top-menu-item">
-                <a href="/contact/">contact</a>
-              </li>
-              <!-- <li class="top-menu-item top-menu-item-active">
+              
+              <!-- <li class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active">
                             <a href="https://github.com/dangnha" target="blank">dangnha</a>
                         </li> -->
             </ul>
 
             <!-- User -->
+          
             <div id="user" class="basis-2/6 lg:basis-1/6 hover:cursor-pointer">
-              <div
-                class="md:ml-9 ml-11 user max-w-[44px] h-11 bg-[url(./img/user.jpg)] bg-cover bg-no-repeat bg-center rounded-full relative"
-              >
+             
+              <div>
+                <% if (user) { %>
+                  <div class="w-12 h-12 bg-black rounded-full"></div>
                 <div
                   id="user-interface"
-                  class="hidden w-[180px] h-[150px] bg-white absolute top-12 shadow-inner"
+                  class="hidden w-[200px] h-[120px] bg-white absolute top-14 shadow-inner"
                 >
                   <div class="px-3 py-3">
-                    <span class="text-sm font-normal"> Dang Nha </span>
-                    <span class="text-sm font-medium">
-                      nhand.21it@vku.udn.vn
-                    </span>
+                    <span><%= user.email %></span>
                   </div>
                   <hr />
                   <div class="text-sm font-normal">
                     <div
                       class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
                     >
-                      <span>settings</span>
+                    <a href="/blogs/<%=user._id%>"><span>Profile</span></a>
                     </div>
                     <div
                       class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
                     >
-                      <a href="/login/"><span>sign out</span></a>
+                    <a href="/logout"><span>Logout</span></a>
                       <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                     </div>
                   </div>
                 </div>
+                <% } else { %>
+                <div class="flex flex-row gap-2">
+                  <div class="px-2 py-1 bg-black text-white hover:bg-gray-200 hover:text-black"><a href="/login">Login</a></div>
+                  <div class="px-2 py-1 bg-black text-white hover:bg-gray-200 hover:text-black"><a href="/signup">SignUp</a></div></div>
+                <% } %>
+                </div>
+                
               </div>
             </div>
 
@@ -164,17 +185,23 @@
                 type="text"
                 placeholder="Your Blog"
               />
-              <button class="basis-[20%] py-2 text-white bg-black">
-                <a href="/addblog">New</a>
+              <button class="basis-[20%] text-white bg-black">
+                <a class="py-2 px-8" href="/addblog">New</a>
               </button>
             </div>
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-2 gap-4">
               <% x.forEach((y)=> { %>
               <div class="blogItem w-full md:basis-1/2 px-4">
                 <div class="max-w-[370px] mx-auto mb-10">
                   <div
-                    class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-8 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(<%=y.blogImage %>)] bg-cover bg-no-repeat bg-center"
-                  ></div>
+                    class="rounded overflow-hidden hover:animate-pulse 
+                    hover\:cursor-pointer mb-8 md:h-[400px] h-[275px] w-[275px] 
+                    md:w-[400px] object-cover object-center"
+                  >
+                    <img 
+                      src="http://localhost:5000/<%=y.blogImage%>" 
+                      alt="">
+                </div>
                   <div>
                     <span
                       class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5"
@@ -186,19 +213,21 @@
                         href="javascript:void(0)"
                         class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-[#00CC99]"
                       >
-                        <%=y.description%>
+                        <%=y.name%>
                       </a>
                     </h3>
-                    <p class="text-base text-body-color"><%=y.content%></p>
+                    <p class="text-base text-body-color"><%=y.description%></p>
                   </div>
                 </div>
                 <div class="button flex flex-row gap-4 ml-4 text-center">
+                  <a href="">
                   <button
                     type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                   >
                     Edit
                   </button>
+                </a>
                   <form action="/blogs/delete" method="post">
                     <input type="hidden" name="_id" value="<%=y._id %>" />
                     <button
@@ -217,7 +246,6 @@
         <!-- footer -->
 
         <div class="footer w-full h-[350px] bg-white wow">
-          <hr class="mb-6" />
           <div
             class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
           >
@@ -256,23 +284,19 @@
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/2Dmap">Digital Map</a>
+                  <a href="/map">Digital Map</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/group">Club&Groups</a>
+                  <a href="/events">Events</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/contests">Contests</a>
+                  <a href="/blogs">Blogs</a>
                 </li>
-                <li
-                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
-                >
-                  <a href="/contact/">Contact</a>
-                </li>
+                
               </ul>
             </div>
             <div class="basis-1/7 text-sm text-gray-400">
@@ -284,7 +308,7 @@
               <ul class="flex flex-col justify-center items-center">
                 <li class="max-h-[150px] max-w-[150px]">
                   <a href="https://vku.udn.vn/" target="blank"
-                    ><img src="./img/logo-tab.jpg" alt=""
+                    ><img src="../uploads/img/logo-tab.jpg" alt=""
                   /></a>
                 </li>
                 <li class="">
@@ -338,6 +362,56 @@
     <script src="./wow/wow.min.js" type="text/javascript"></script>
     <script>
       new WOW().init();
+    </script>
+    <script>
+      // alert('Welcome to my website')
+
+      const topMenu = document.getElementById("nav-menu");
+      const toggleTopMenuIcon = document.getElementById("nav-menu-toggle");
+
+      document.addEventListener("click", (e) => {
+        if (toggleTopMenuIcon.contains(e.target)) {
+          topMenu.classList.toggle("hidden");
+          topMenu.classList.toggle("top-menu-expanded");
+        } else {
+          if (topMenu.classList.contains("top-menu-expanded")) {
+            topMenu.classList.remove("top-menu-expanded");
+            topMenu.classList.add("hidden");
+          }
+        }
+      });
+
+      var userAvt = document.getElementById("user");
+
+      var userIn = document.getElementById("user-interface");
+
+      document.addEventListener("click", (e) => {
+        if (userAvt.contains(e.target)) {
+          userIn.classList.toggle("hidden");
+          userIn.classList.toggle("block");
+        } else {
+          if (userIn.classList.contains("block")) {
+            userIn.classList.remove("block");
+            userIn.classList.add("hidden");
+          }
+        }
+      });
+
+      var maps = document.getElementById("digitial-map");
+
+      var slMap = document.getElementById("selection");
+
+      document.addEventListener("click", (e) => {
+        if (maps.contains(e.target)) {
+          slMap.classList.toggle("hidden");
+          slMap.classList.toggle("block");
+        } else {
+          if (slMap.classList.contains("block")) {
+            slMap.classList.remove("block");
+            slMap.classList.add("hidden");
+          }
+        }
+      });
     </script>
   </body>
 </html>

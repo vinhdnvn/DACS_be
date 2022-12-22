@@ -4,6 +4,7 @@ const moment = require("moment");
 const blogSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   blogType: { type: String, required: true },
+  name: { type: String, required: true },
   description: { type: String, required: true },
   content: { type: String, required: true },
   blogImage: { type: String, data: Buffer, required: true },

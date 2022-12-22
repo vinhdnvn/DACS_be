@@ -250,58 +250,6 @@
                 </div>
         
                 <% }) %>
-                <% x.forEach((y)=> { %>
-                  <div class="container items-center flex justify-around flex-col bg-black rounded-xl text-white items-start">
-                    
-                    <div class="imageDiv flex justify-center">
-                      <img
-                        class="w-[400px] h-[200px] rounded-t-xl object-cover"
-                        src="http://localhost:5000/<%=y.eventImage%>"
-                        alt="anh da bi an"
-                      />
-                    </div>
-                    <div class="date mt-2 py-[5px] px-[10px] rounded-lg text-sm bg-red-500 text-white inline-block ">
-                      <p><%=y.createUpdate%></p>
-                    </div>
-                    
-                      <div class="nameEvent px-3 uppercase text-2xl line-height-1 font-bold">
-                        <a href="#"><%=y.name%></a>
-                      </div>
-                      <div class="postedBy text-md text-gray-300 font-semibold">
-                        <a href=""><%=y.locateAt%></a>
-                      </div>
-                      <div class="typeEvent my-4 w-[90%] bg-[#3a3b3c] rounded-lg text-center py-2 text-md border-2 border-[#3a3b3c] border-solid">
-                        <a href="#"><%=y.eventType%></a>
-                      </div>
-                  </div>
-          
-                  <% }) %>
-                  <% x.forEach((y)=> { %>
-                    <div class="container items-center flex justify-around flex-col bg-black rounded-xl text-white items-start">
-                      
-                      <div class="imageDiv flex justify-center">
-                        <img
-                          class="w-[400px] h-[200px] rounded-t-xl object-cover"
-                          src="http://localhost:5000/<%=y.eventImage%>"
-                          alt="anh da bi an"
-                        />
-                      </div>
-                      <div class="date mt-2 py-[5px] px-[10px] rounded-lg text-sm bg-red-500 text-white inline-block ">
-                        <p><%=y.createUpdate%></p>
-                      </div>
-                      
-                        <div class="nameEvent px-3 uppercase text-2xl line-height-1 font-bold">
-                          <a href="#"><%=y.name%></a>
-                        </div>
-                        <div class="postedBy text-md text-gray-300 font-semibold">
-                          <a href=""><%=y.locateAt%></a>
-                        </div>
-                        <div class="typeEvent my-4 w-[90%] bg-[#3a3b3c] rounded-lg text-center py-2 text-md border-2 border-[#3a3b3c] border-solid">
-                          <a href="#"><%=y.eventType%></a>
-                        </div>
-                    </div>
-            
-                    <% }) %>
               </div>
 
         
@@ -356,23 +304,19 @@
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/2Dmap">Digital Map</a>
+                  <a href="/map">Digital Map</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/group">Events</a>
+                  <a href="/events">Events</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/contests">Blogs</a>
+                  <a href="/blogs">Blogs</a>
                 </li>
-                <li
-                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
-                >
-                  <a href="/contact/">Contact</a>
-                </li>
+                
               </ul>
             </div>
             <div class="basis-1/7 text-sm text-gray-400">

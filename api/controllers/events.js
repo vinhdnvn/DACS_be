@@ -63,12 +63,12 @@ exports.events_post_addEvent = (req, res, next) => {
     note: req.body.note,
     eventImage: req.file.path.replace(/\\/g, "/"),
   });
-  const token = createToken(event.postedBy._id);
-  res.cookies("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+  // const token = createToken(event.postedBy._id);
+  // res.cookies("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
   event
     .save()
     .then((result) => {
-      res.status(201).json({ result: event.postedBy._id });
+      // res.status(201).json({ result: event.postedBy._id });
       res.redirect("events");
     })
     .catch((err) => {

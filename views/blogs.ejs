@@ -19,6 +19,7 @@
     <link href="../output.css" type="text/css" rel="stylesheet" />
     <script src="../main.js" type="text/javascript" async></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../public/ejs/css/style.css" />
     <title>Virtual VKU</title>
   </head>
 
@@ -31,11 +32,11 @@
 
         <!-- Header -->
         <div
-          class="header py-6 mx-auto fixed top-0 bg-white left-0 right-0 z-40 shadow-lg"
+          class="header py-6 mx-auto fixed top-0 bg-white left-0 right-0 z-50 shadow-xl"
         >
           <div class="nav flex flex-row justify-between items-center relative">
             <div
-              class="logo basic-2/6 text-center text-3xl font-semibold cursor-pointer px-7 lg:px-24"
+              class="logo basic-2/6 text-center text-3xl cursor-pointer px-7 lg:px-24"
             >
               <a class="flex flex-col justify-center items-center" href="/">
                 <div class="font-semibold text-lime-500">Virtual</div>
@@ -53,42 +54,57 @@
               id="nav-menu"
               class="hidden basis-3/6 lg:flex lg:justify-end lg:gap-9 uppercase text-sm text-gray-500"
             >
-              <li class="top-menu-item">
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active"
+              >
                 <a href="/">home</a>
               </li>
-              <li class="top-menu-item relative group">
-                <a href="/2Dmap/"
-                  >digital map <i class="fa-solid fa-angle-down"></i
-                ></a>
+              <li
+                id="digitial-map"
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 relative group"
+              >
+                <span>digital map <i class="fa-solid fa-angle-down"></i></span>
                 <div
+                  id="selection"
                   class="suv-menu absolute shadow-xl bg-white w-[130px] top-9 hidden group-hover:block"
                 >
                   <ul class="mx-3">
-                    <li class="top-menu-item text-gray-500">
-                      <a href="/2Dmap/">2D Map</a>
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
+                    >
+                      <a href="/2Dmap">2D Map</a>
                     </li>
-                    <li class="top-menu-item text-gray-500">
-                      <a href="/3DMap/">3D Map</a>
+                    <li
+                      class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 text-gray-500"
+                    >
+                      <a href="/3DMap">3D Map</a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="top-menu-item">
-                <a href="/group">club&groups</a>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/events">Events</a>
               </li>
-              <li class="top-menu-item top-menu-item-active">
-                <a href="/contests">blog</a>
+              <li
+                class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full lg:after:transition-all lg:after:ease-in-out lg:after:duration-300"
+              >
+                <a href="/blogs">blog</a>
               </li>
-              <li class="top-menu-item">
-                <a href="/contact">contact</a>
-              </li>
-              <!-- <li class="top-menu-item top-menu-item-active">
+              
+            
+              <!-- <li class="cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300 cursor-pointer py-2 hover:text-gray-900 relative lg:after:absolute 
+    lg:after:bottom-0 lg:after:left-0 lg:after:bg-lime-400 lg:after:h-0.5 lg:after:w-0 hover:lg:after:w-full 
+    lg:after:transition-all lg:after:ease-in-out lg:after:duration-300-active">
                             <a href="https://github.com/dangnha" target="blank">dangnha</a>
                         </li> -->
             </ul>
 
-            <!-- user -->
-
+            <!-- User -->
+          
             <div id="user" class="basis-2/6 lg:basis-1/6 hover:cursor-pointer">
              
               <div>
@@ -106,7 +122,7 @@
                     <div
                       class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
                     >
-                    <a href="/profile"><span>Profile</span></a>
+                    <a href="/blogs/<%=user._id%>"><span>Profile</span></a>
                     </div>
                     <div
                       class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
@@ -128,7 +144,7 @@
 
             <!-- Menu hidden -->
             <div
-              class="menu-hidden basis-1/6 lg:hidden md:px-5 flex items-center cursor-pointer"
+              class="menu-hidden p-3 basis-1/6 lg:hidden md:px-5 flex items-center cursor-pointer"
             >
               <svg
                 id="nav-menu-toggle"
@@ -201,33 +217,36 @@
 
               <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-rows-1 gap-4">
                 <% x.forEach((y)=> { %>
-
-                  <div id= "<%=y._id%>" class=" blogItem max-w-[370px] mx-auto mb-10">
+                  <form action="/profile/<%=y._id%>" method="get">
+                    <button class="blogItem max-w-[370px] mx-auto mb-10 flex flex-col justify-start" type="submit">
                     <div
-                      class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-4 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(<%=y.blogImage %>)] bg-cover bg-no-repeat bg-center"
+                      class="rounded overflow-hidden hover:animate-pulse 
+                      hover\:cursor-pointer mb-4 md:min-h-[265px] min-h-[200px] min-w-[285px] 
+                      md:min-w-[350px] bg-[url(<%=y.blogImage %>)] bg-cover bg-no-repeat bg-center"
                     ></div>
-                    <div>
-                      <span
+                    <div class="flex flex-col items-start">
+                      <div
                         class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-2"
                       >
                         <%=y.createUpdate%>
-                      </span>
-                      <h3>
+                      </div>
+                      <div>
                         <a
                           href="javascript:void(0)"
                           class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-[#00CC99]"
                         >
-                          <%=y.description%>
+                          <%=y.name%>
                         </a>
-                      </h3>
+                      </div>
+                      <div>
                       <i class="text-base text-body-color">
-                        Cuộc thi Robocar là cuộc thi quen thuộc đối với sinh
-                        viên các ngành kĩ thuật, mang lại sân chơi cực kì bổ ích
-                        và lí thú cho người tham gia.
+                        <%=y.description%>
                       </i>
+                      </div>
                       <!-- <p class="text-base text-body-color"><%=y.content%></p> -->
                     </div>
-                  </div>
+                  </button>
+                  </form>
                   <% }) %>
               </div>
             </div>
@@ -243,7 +262,7 @@
 
         <!-- footer -->
 
-        <div class="footer w-full h-[350px] bg-white">
+        <div class="footer w-full h-[350px] bg-white wow">
           <div
             class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
           >
@@ -282,23 +301,19 @@
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/2Dmap">Digital Map</a>
+                  <a href="/map">Digital Map</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/group">Club&Groups</a>
+                  <a href="/events">Events</a>
                 </li>
                 <li
                   class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
                 >
-                  <a href="/contests">Contests</a>
+                  <a href="/blogs">Blogs</a>
                 </li>
-                <li
-                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
-                >
-                  <a href="/contact/">Contact</a>
-                </li>
+                
               </ul>
             </div>
             <div class="basis-1/7 text-sm text-gray-400">
@@ -310,7 +325,7 @@
               <ul class="flex flex-col justify-center items-center">
                 <li class="max-h-[150px] max-w-[150px]">
                   <a href="https://vku.udn.vn/" target="blank"
-                    ><img src=".../uploads/img/logo-tab.jpg" alt=""
+                    ><img src="../uploads/img/logo-tab.jpg" alt=""
                   /></a>
                 </li>
                 <li class="">
