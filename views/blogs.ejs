@@ -27,6 +27,8 @@
       <div
         class="root font-Karla max-w-screen-2xl text-base mx-auto md:px-8 bg-white font-medium"
       >
+        
+
         <!-- Header -->
         <div
           class="header py-6 mx-auto fixed top-0 bg-white left-0 right-0 z-40 shadow-lg"
@@ -196,16 +198,17 @@
                   </div>
                 </div>
               </div>
+
               <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-rows-1 gap-4">
                 <% x.forEach((y)=> { %>
-                <div class="blogItem w-full md:basis-1/2 lg:basis-1/3 px-4">
-                  <div class="max-w-[370px] mx-auto mb-10">
+
+                  <div id= "<%=y._id%>" class=" blogItem max-w-[370px] mx-auto mb-10">
                     <div
-                      class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-8 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(<%=y.blogImage %>)] bg-cover bg-no-repeat bg-center"
+                      class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-4 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(<%=y.blogImage %>)] bg-cover bg-no-repeat bg-center"
                     ></div>
                     <div>
                       <span
-                        class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5"
+                        class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-2"
                       >
                         <%=y.createUpdate%>
                       </span>
@@ -225,90 +228,12 @@
                       <!-- <p class="text-base text-body-color"><%=y.content%></p> -->
                     </div>
                   </div>
-                </div>
-                <% }) %>
+                  <% }) %>
               </div>
             </div>
           </section>
           <!-- ====== Blog Section End -->
 
-          <!-- Contests -->
-          <!-- <div class="competitions w-full h-full lg:mb-24 lg:h-[1500px]">
-                    <div class="grid lg:grid-cols-2 grid-cols-1 gap-9 h-full w-full">
-                        <div class="contest flex flex-col gap-7">
-                            <div class="text-center">
-                                <div class="uppercase text-3xl font-semibold mb-4">best web design 2022</div>
-                                <div>Best Web Design 2022 không chỉ mang đến sân chơi mới cho các bạn sinh viên K21 mà còn mang đến một sân đấu dành riêng cho các “Dân chơi lão làng” có thể “cọ sát” với nhau mạnh hơn.</div>
-                                <div class=" text-xl font-medium">Hạng mục 1: Cuộc thi BWD 2022</div>
-                                <div>Thành phần tham gia: Tất cả sinh viên VKU đang học môn học Thiết kế web hoặc Công nghệ web trong học kỳ 2, năm học 2021-2022 và sinh viên năm thứ nhất của Trường VKU và các trường khác ở Khu vực Miền trung – Tây Nguyên
-                                    và cả nước.</div>
-                                <div class=" text-xl font-medium">Hạng mục 2: Cuộc thi Super BWD 2022</div>
-                                <div>Thành phần tham gia: Tất cả sinh viên đã đạt giải ở các năm trước và sinh viên năm thứ hai trở lên của Trường VKU và các trường khác ở Khu vực Miền trung – Tây Nguyên và cả nước.</div>
-                            </div>
-
-                            <div>
-                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" width="560" height="315" src="https://www.youtube.com/embed/M2vgAYvmF8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-
-                        </div>
-
-                        <div class="contest flex flex-col lg:gap-[165px] gap-7">
-                            <div class="text-center">
-                                <div class="uppercase text-3xl font-semibold mb-4">cuộc thi sáng tạo robocar 2022</div>
-                                <div class=" text-xl font-medium">Đối tượng tham gia:</div>
-                                <div>Thành phần bắt buộc: Toàn bộ sinh viên trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn có đăng ký học phần Vi điều khiển học kỳ 2- năm học 2021-2022.</div>
-                                <div>Toàn thể sinh viên trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn và các trường đại học thành viên thuộc Đại học Đà Nẵng.</div>
-                                <div>Toàn thể học sinh trung học phổ thông đam mê Robocar</div>
-                            </div>
-
-                            <div>
-                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" width="560" height="315" src="https://www.youtube.com/embed/c4qzx7MsZsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-
-                        </div>
-
-                        <div class="contest flex flex-col gap-7">
-                            <div class="text-center ">
-                                <div class="uppercase text-3xl font-semibold mb-4">english talent Competition - ETC 2021</div>
-                                <div>Best Web Design 2022 không chỉ mang đến sân chơi mới cho các bạn sinh viên K21 mà còn mang đến một sân đấu dành riêng cho các “Dân chơi lão làng” có thể “cọ sát” với nhau mạnh hơn.</div>
-                                <div class=" text-xl font-medium">ĐỐI TƯỢNG THAM GIA: </div>
-                                <div>Sinh viên tất cả các khoá của Trường ĐH Công nghệ Thông tin và Truyền thông Việt – Hàn, bắt buộc đối với sinh viên K20, khuyến khích sinh viên K19</div>
-                                <div>Tất cả sinh viên Đại học Đà Nẵng</div>
-                                <div>Các sinh viên thi theo hình thức nhóm (3 sinh viên); khuyến khích mỗi nhóm gồm 02 sinh viên Công nghệ thông tin hoặc Công nghệ kỹ thuật máy tính và 01 sinh viên Quản trị kinh doanh. </div>
-                            </div>
-
-                            <div class="">
-                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fvku.udn.vn%2Fvideos%2F920132715203868%2F&show_text=false&width=560&t=0"
-                                    width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-                            </div>
-
-                        </div>
-
-                        <div class="contest flex flex-col lg:gap-[90px] gap-7">
-                            <div class="text-center">
-                                <div class="uppercase text-3xl font-semibold mb-4">Incubation of innovation and start-up ideas 2022</div>
-                                <div>PISIlà chương trình hỗ trợ và tài trợ để triển khai các ý tưởng sáng tạo và khởi nghiệp dành cho học sinh, sinh viên khu vực Miền Trung – Tây Nguyên. </div>
-                                <div class=" text-xl font-medium">Chương trình PISI 2022 chính thức khởi động với nhiều hoạt động hấp dẫn đang chờ đón các bạn học sinh, sinh viên:</div>
-                                <div>Các vòng thi: Sơ loại, bán kết, chung kết</div>
-                                <div>Đào tạo các kiến thức, kỹ năng cần thiết để xây dựng dự án khởi nghiệp</div>
-                                <div>Hỗ trợ để thực hiện sản phẩm mẫu</div>
-                            </div>
-
-                            <div>
-                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fpisi.vku%2Fvideos%2F554592705870501%2F&show_text=false&width=560&t=0"
-                                    width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div>
-
-                    </div>
-                </div> -->
         </div>
 
         <!-- img const -->
@@ -435,57 +360,81 @@
         </div>
       </div>
     </div>
+
+<script>
+    var blog = document.getElementById("blog");
+    var page = document.getElementsByTagName("body")
+      const blogItems = document.getElementsByClassName("blogItem");
+      for (const blogItem of blogItems) {
+        blogItem.addEventListener("click", function () {
+          if (blog.classList.contains("hidden")) {
+            blog.classList.remove("hidden");
+            blog.classList.add("flex");
+          }
+        });
+      }
+      
+      const close = document.getElementById("close");
+      
+      close.addEventListener("click", function () {
+        if (blog.classList.contains("flex")) {
+          blog.classList.remove("flex");
+          blog.classList.add("hidden");
+        }
+      });
+  </script>
+
     <script>
       // alert('Welcome to my website')
 
-const topMenu = document.getElementById('nav-menu');
-const toggleTopMenuIcon = document.getElementById('nav-menu-toggle');
+          const topMenu = document.getElementById('nav-menu');
+          const toggleTopMenuIcon = document.getElementById('nav-menu-toggle');
 
-document.addEventListener('click', (e) => {
-    if (toggleTopMenuIcon.contains(e.target)) {
-        topMenu.classList.toggle('hidden')
-        topMenu.classList.toggle('top-menu-expanded')
-    } else {
-        if (topMenu.classList.contains('top-menu-expanded')) {
-            topMenu.classList.remove('top-menu-expanded')
-            topMenu.classList.add('hidden')
-        }
-    }
-})
+          document.addEventListener('click', (e) => {
+              if (toggleTopMenuIcon.contains(e.target)) {
+                  topMenu.classList.toggle('hidden')
+                  topMenu.classList.toggle('top-menu-expanded')
+              } else {
+                  if (topMenu.classList.contains('top-menu-expanded')) {
+                      topMenu.classList.remove('top-menu-expanded')
+                      topMenu.classList.add('hidden')
+                  }
+              }
+          })
 
-var userAvt = document.getElementById('user');
+          var userAvt = document.getElementById('user');
 
-var userIn = document.getElementById('user-interface')
-
-
-document.addEventListener('click', (e) => {
-    if (userAvt.contains(e.target)) {
-        userIn.classList.toggle('hidden')
-        userIn.classList.toggle('block')
-    } else {
-        if (userIn.classList.contains('block')) {
-            userIn.classList.remove('block')
-            userIn.classList.add('hidden')
-        }
-    }
-})
-
-var maps = document.getElementById('digitial-map');
-
-var slMap = document.getElementById('selection')
+          var userIn = document.getElementById('user-interface')
 
 
-document.addEventListener('click', (e) => {
-    if (maps.contains(e.target)) {
-        slMap.classList.toggle('hidden')
-        slMap.classList.toggle('block')
-    } else {
-        if (slMap.classList.contains('block')) {
-            slMap.classList.remove('block')
-            slMap.classList.add('hidden')
-        }
-    }
-})
+          document.addEventListener('click', (e) => {
+              if (userAvt.contains(e.target)) {
+                  userIn.classList.toggle('hidden')
+                  userIn.classList.toggle('block')
+              } else {
+                  if (userIn.classList.contains('block')) {
+                      userIn.classList.remove('block')
+                      userIn.classList.add('hidden')
+                  }
+              }
+          })
+
+          var maps = document.getElementById('digitial-map');
+
+          var slMap = document.getElementById('selection')
+
+
+          document.addEventListener('click', (e) => {
+              if (maps.contains(e.target)) {
+                  slMap.classList.toggle('hidden')
+                  slMap.classList.toggle('block')
+              } else {
+                  if (slMap.classList.contains('block')) {
+                      slMap.classList.remove('block')
+                      slMap.classList.add('hidden')
+                  }
+              }
+          })
     </script>
   </body>
 </html>
