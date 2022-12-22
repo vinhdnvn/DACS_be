@@ -1,161 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tailwind Blog Template</title>
-    <meta name="author" content="David Grzyb" />
-    <meta name="description" content="" />
-
-    <!-- Tailwind -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
+      href="https://cdn.tailgrids.com/tailgrids-fallback.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="../img/logo-tab.jpg" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../output.css" type="text/css" rel="stylesheet" />
+    <script src="../main.js" type="text/javascript" async></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Virtual VKU</title>
   </head>
-  <body class="bg-white font-family-karla">
-    <!-- Top Bar Nav -->
-    <nav class="w-full py-4 bg-blue-800 shadow">
+
+  <body>
+    <div>
       <div
-        class="w-full container mx-auto flex flex-wrap items-center justify-between"
+        class="root font-Karla max-w-screen-2xl text-base mx-auto md:px-8 bg-white font-medium"
       >
-        <nav>
-          <ul
-            class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline"
-          >
-            <li>
-              <a class="hover:text-gray-200 hover:underline px-4" href="#"
-                >Shop</a
-              >
-            </li>
-            <li>
-              <a class="hover:text-gray-200 hover:underline px-4" href="#"
-                >About</a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <div class="flex items-center text-lg no-underline text-white pr-6">
-          <a class="" href="#">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a class="pl-6" href="#">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a class="pl-6" href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a class="pl-6" href="#">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Text Header -->
-    <header class="w-full container mx-auto">
-      <div class="flex flex-col items-center py-12">
-        <a
-          class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
-          href="#"
-        >
-          Minimal Blog
-        </a>
-        <p class="text-lg text-gray-600">Lorem Ipsum Dolor Sit Amet</p>
-      </div>
-    </header>
-
-    <!-- Topic Nav -->
-    <nav
-      class="w-full py-4 border-t border-b bg-gray-100"
-      x-data="{ open: false }"
-    >
-      <div class="block sm:hidden">
-        <a
-          href="#"
-          class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-          @click="open = !open"
-        >
-          Topics
-          <i
-            :class="open ? 'fa-chevron-down': 'fa-chevron-up'"
-            class="fas ml-2"
-          ></i>
-        </a>
-      </div>
-      <div
-        :class="open ? 'block': 'hidden'"
-        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
-      >
+        <!-- Header -->
         <div
-          class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
+          class="header py-6 mx-auto fixed top-0 bg-white left-0 right-0 z-40 shadow-lg"
         >
-          <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
-            >Technology</a
+          <div class="nav flex flex-row justify-between items-center relative">
+            <div
+              class="logo basic-2/6 text-center text-3xl font-semibold cursor-pointer px-7 lg:px-24"
+            >
+              <a class="flex flex-col justify-center items-center" href="/">
+                <div class="font-semibold text-lime-500">Virtual</div>
+                <div class="flex flex-row">
+                  <div class="uppercase font-black text-red-600">v</div>
+                  <div class="uppercase font-black text-yellow-400">k</div>
+                  <div class="uppercase font-black text-blue-600">u</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- navigation -->
+
+            <ul
+              id="nav-menu"
+              class="hidden basis-3/6 lg:flex lg:justify-end lg:gap-9 uppercase text-sm text-gray-500"
+            >
+              <li class="top-menu-item">
+                <a href="/">home</a>
+              </li>
+              <li class="top-menu-item relative group">
+                <a href="/2Dmap/"
+                  >digital map <i class="fa-solid fa-angle-down"></i
+                ></a>
+                <div
+                  class="suv-menu absolute shadow-xl bg-white w-[130px] top-9 hidden group-hover:block"
+                >
+                  <ul class="mx-3">
+                    <li class="top-menu-item text-gray-500">
+                      <a href="/2Dmap/">2D Map</a>
+                    </li>
+                    <li class="top-menu-item text-gray-500">
+                      <a href="/3DMap/">3D Map</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="top-menu-item">
+                <a href="/group">club&groups</a>
+              </li>
+              <li class="top-menu-item top-menu-item-active">
+                <a href="/contests">blog</a>
+              </li>
+              <li class="top-menu-item">
+                <a href="/contact">contact</a>
+              </li>
+              <!-- <li class="top-menu-item top-menu-item-active">
+                            <a href="https://github.com/dangnha" target="blank">dangnha</a>
+                        </li> -->
+            </ul>
+
+            <!-- user -->
+
+            <div id="user" class="basis-2/6 lg:basis-1/6 hover:cursor-pointer">
+              <div
+                class="md:ml-9 ml-11 user max-w-[44px] h-11 bg-[url(./img/user.jpg)] bg-cover bg-no-repeat bg-center rounded-full relative"
+              >
+                <div
+                  id="user-interface"
+                  class="hidden w-[180px] h-[150px] bg-white absolute top-12 shadow-inner"
+                >
+                  <div class="px-3 py-3">
+                    <span class="text-sm font-normal"> Dang Nha </span>
+                    <span class="text-sm font-medium">
+                      nhand.21it@vku.udn.vn
+                    </span>
+                  </div>
+                  <hr />
+                  <div class="text-sm font-normal">
+                    <div
+                      class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
+                    >
+                      <span>settings</span>
+                    </div>
+                    <div
+                      class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
+                    >
+                      <a href="/login/"><span>sign out</span></a>
+                      <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Menu hidden -->
+            <div
+              class="menu-hidden basis-1/6 lg:hidden md:px-5 flex items-center cursor-pointer"
+            >
+              <svg
+                id="nav-menu-toggle"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-[120px] w-[95%] xl:w-[80%] mx-auto">
+          <!-- <div class="page-break">
+                    <div class="page-break__line"></div>
+                    <div class="page-break__content">Competitions in vku</div>
+                    <div class="page-break__line"></div>
+                </div> -->
+          <div
+            class="w-[100vw] relative left-[calc(-50vw_+_50%)] h-[600px] bg-[url(./img/comp-bg.jpg)] bg-cover bg-no-repeat bg-center"
           >
-          <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
-            >Automotive</a
+            <div
+              class="w-full h-full bg-black bg-opacity-30 flex flex-col justify-center bg-items-center lg:text-left text-center gap-5 px-10"
+            >
+              <div
+                class="md:text-7xl text-4xl font-black text-[#66FFFF] uppercase"
+              >
+                Blog <span class="text-white">-</span>
+                <span class="text-red-600">v</span
+                ><span class="text-yellow-500">k</span
+                ><span class="text-blue-600">u</span>
+              </div>
+              <div class="text-xl font-normal italic text-[#EEEEEE]">
+                "Genius is one percent inspiration and ninety-nine percent
+                perspiration"
+              </div>
+            </div>
+          </div>
+          <!-- ====== Blog Section Start -->
+          <section class="pt-6 lg:pt-[40px] pb-10 lg:pb-20">
+            <div class="container">
+              <div class="flex flex-wrap justify-center -mx-4">
+                <div class="w-full px-4">
+                  <div
+                    class="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]"
+                  >
+                    <span
+                      class="font-semibold text-lg text-[#00CC99] mb-2 block"
+                    >
+                      VKU
+                    </span>
+                    <h2
+                      class="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4"
+                    >
+                      <i
+                        >Sometimes you need to experience everything so that you
+                        would learn</i
+                      >
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-rows-1 gap-4">
+                <% x.forEach((y)=> { %>
+                <div class="blogItem w-full md:basis-1/2 lg:basis-1/3 px-4">
+                  <div class="max-w-[370px] mx-auto mb-10">
+                    <div
+                      class="rounded overflow-hidden hover:animate-pulse hover\:cursor-pointer mb-8 md:min-h-[265px] min-h-[200px] min-w-[285px] md:min-w-[350px] bg-[url(<%=y.blogImage %>)] bg-cover bg-no-repeat bg-center"
+                    ></div>
+                    <div>
+                      <span
+                        class="bg-[#00CC99] rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5"
+                      >
+                        <%=y.createUpdate%>
+                      </span>
+                      <h3>
+                        <a
+                          href="javascript:void(0)"
+                          class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-[#00CC99]"
+                        >
+                          <%=y.description%>
+                        </a>
+                      </h3>
+                      <!-- <p class="text-base text-body-color"><%=y.content%></p> -->
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+          </section>
+          <!-- ====== Blog Section End -->
+
+          <!-- Contests -->
+          <!-- <div class="competitions w-full h-full lg:mb-24 lg:h-[1500px]">
+                    <div class="grid lg:grid-cols-2 grid-cols-1 gap-9 h-full w-full">
+                        <div class="contest flex flex-col gap-7">
+                            <div class="text-center">
+                                <div class="uppercase text-3xl font-semibold mb-4">best web design 2022</div>
+                                <div>Best Web Design 2022 không chỉ mang đến sân chơi mới cho các bạn sinh viên K21 mà còn mang đến một sân đấu dành riêng cho các “Dân chơi lão làng” có thể “cọ sát” với nhau mạnh hơn.</div>
+                                <div class=" text-xl font-medium">Hạng mục 1: Cuộc thi BWD 2022</div>
+                                <div>Thành phần tham gia: Tất cả sinh viên VKU đang học môn học Thiết kế web hoặc Công nghệ web trong học kỳ 2, năm học 2021-2022 và sinh viên năm thứ nhất của Trường VKU và các trường khác ở Khu vực Miền trung – Tây Nguyên
+                                    và cả nước.</div>
+                                <div class=" text-xl font-medium">Hạng mục 2: Cuộc thi Super BWD 2022</div>
+                                <div>Thành phần tham gia: Tất cả sinh viên đã đạt giải ở các năm trước và sinh viên năm thứ hai trở lên của Trường VKU và các trường khác ở Khu vực Miền trung – Tây Nguyên và cả nước.</div>
+                            </div>
+
+                            <div>
+                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" width="560" height="315" src="https://www.youtube.com/embed/M2vgAYvmF8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+
+                        <div class="contest flex flex-col lg:gap-[165px] gap-7">
+                            <div class="text-center">
+                                <div class="uppercase text-3xl font-semibold mb-4">cuộc thi sáng tạo robocar 2022</div>
+                                <div class=" text-xl font-medium">Đối tượng tham gia:</div>
+                                <div>Thành phần bắt buộc: Toàn bộ sinh viên trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn có đăng ký học phần Vi điều khiển học kỳ 2- năm học 2021-2022.</div>
+                                <div>Toàn thể sinh viên trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn và các trường đại học thành viên thuộc Đại học Đà Nẵng.</div>
+                                <div>Toàn thể học sinh trung học phổ thông đam mê Robocar</div>
+                            </div>
+
+                            <div>
+                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" width="560" height="315" src="https://www.youtube.com/embed/c4qzx7MsZsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+
+                        <div class="contest flex flex-col gap-7">
+                            <div class="text-center ">
+                                <div class="uppercase text-3xl font-semibold mb-4">english talent Competition - ETC 2021</div>
+                                <div>Best Web Design 2022 không chỉ mang đến sân chơi mới cho các bạn sinh viên K21 mà còn mang đến một sân đấu dành riêng cho các “Dân chơi lão làng” có thể “cọ sát” với nhau mạnh hơn.</div>
+                                <div class=" text-xl font-medium">ĐỐI TƯỢNG THAM GIA: </div>
+                                <div>Sinh viên tất cả các khoá của Trường ĐH Công nghệ Thông tin và Truyền thông Việt – Hàn, bắt buộc đối với sinh viên K20, khuyến khích sinh viên K19</div>
+                                <div>Tất cả sinh viên Đại học Đà Nẵng</div>
+                                <div>Các sinh viên thi theo hình thức nhóm (3 sinh viên); khuyến khích mỗi nhóm gồm 02 sinh viên Công nghệ thông tin hoặc Công nghệ kỹ thuật máy tính và 01 sinh viên Quản trị kinh doanh. </div>
+                            </div>
+
+                            <div class="">
+                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fvku.udn.vn%2Fvideos%2F920132715203868%2F&show_text=false&width=560&t=0"
+                                    width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+
+                        </div>
+
+                        <div class="contest flex flex-col lg:gap-[90px] gap-7">
+                            <div class="text-center">
+                                <div class="uppercase text-3xl font-semibold mb-4">Incubation of innovation and start-up ideas 2022</div>
+                                <div>PISIlà chương trình hỗ trợ và tài trợ để triển khai các ý tưởng sáng tạo và khởi nghiệp dành cho học sinh, sinh viên khu vực Miền Trung – Tây Nguyên. </div>
+                                <div class=" text-xl font-medium">Chương trình PISI 2022 chính thức khởi động với nhiều hoạt động hấp dẫn đang chờ đón các bạn học sinh, sinh viên:</div>
+                                <div>Các vòng thi: Sơ loại, bán kết, chung kết</div>
+                                <div>Đào tạo các kiến thức, kỹ năng cần thiết để xây dựng dự án khởi nghiệp</div>
+                                <div>Hỗ trợ để thực hiện sản phẩm mẫu</div>
+                            </div>
+
+                            <div>
+                                <iframe class="w-full h-full object-cover lg:min-h-[350px] min-h-[450px] lg:min-w-0 min-w-[335px]" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fpisi.vku%2Fvideos%2F554592705870501%2F&show_text=false&width=560&t=0"
+                                    width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div> -->
+        </div>
+
+        <!-- img const -->
+        <div
+          class="parallax-bg h-[400px] mb-24 bg-fixed bg-[url(./img/overview.jpg)] bg-cover bg-no-repeat bg-center w-[100vw] relative left-[calc(-50vw_+_50%)]"
+        ></div>
+
+        <!-- footer -->
+
+        <div class="footer w-full h-[350px] bg-white">
+          <div
+            class="flex md:flex-row flex-col lg:gap-28 gap-8 xl:w-[65%] w-90% mx-auto"
           >
-          <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
-            >Finance</a
-          >
-          <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
-            >Politics</a
-          >
-          <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
-            >Culture</a
-          >
-          <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
-            >Sports</a
-          >
+            <div class="basis-5/7 flex flex-col">
+              <div class="text-xl mb-4 font-bold text-center lg:text-left">
+                Vietnam Korea University of information and communication
+                technology
+              </div>
+              <div
+                class="text-sm mb-12 text-gray-500 opacity-90 text-center lg:text-left"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="pl-1"
+                  >470 Đường Trần Đại Nghĩa, Hoà Hải, Ngũ Hành Sơn, Đà
+                  Nẵng.</span
+                >
+              </div>
+              <div
+                class="text-sm text-center lg:text-left mb-4 text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+              >
+                University in Vietnam
+              </div>
+            </div>
+            <div class="basis-1/7">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-4"
+              >
+                MENU
+              </div>
+              <ul class="flex flex-col gap-2">
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/">Home</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/2Dmap">Digital Map</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/group">Club&Groups</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/contests">Contests</a>
+                </li>
+                <li
+                  class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+                >
+                  <a href="/contact/">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="basis-1/7 text-sm text-gray-400">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-2"
+              >
+                units
+              </div>
+              <ul class="flex flex-col justify-center items-center">
+                <li class="max-h-[150px] max-w-[150px]">
+                  <a href="https://vku.udn.vn/" target="blank"
+                    ><img src="../img/logo-tab.jpg" alt=""
+                  /></a>
+                </li>
+                <li class="">
+                  <div
+                    class="logo basic-2/6 text-center text-3xl cursor-pointer"
+                  >
+                    <a
+                      class="flex flex-col justify-center items-center"
+                      href="/"
+                    >
+                      <div class="font-semibold text-lime-500">Virtual</div>
+                      <div class="flex flex-row">
+                        <div class="uppercase font-black text-red-600">v</div>
+                        <div class="uppercase font-black text-yellow-400">
+                          k
+                        </div>
+                        <div class="uppercase font-black text-blue-600">u</div>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="basis-1/7">
+              <div
+                class="uppercase text-sm text-center lg:text-left text-gray-600 mb-4"
+              >
+                CONTACT US
+              </div>
+              <div
+                class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400 mb-4"
+              >
+                We’re Always Happy to Help
+              </div>
+              <div
+                class="text-xl text-center lg:text-left text-black leading-7 hover:text-lime-400 mb-16"
+              >
+                <a href="">nhand.21it@vku.udn.vn</a>
+              </div>
+              <div
+                class="text-sm text-center lg:text-left text-gray-500 opacity-90 leading-7 hover:text-lime-400"
+              >
+                Powered by Pencil group
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-
-    <div class="container mx-auto flex flex-wrap py-6">
-      <!-- Posts Section -->
-      <section class="w-full md:w-2/3 grid grid-cols-4 gap-4 items-center px-3">
-        <% x.forEach((y)=> { %>
-        <div class="container flex flex-col justify-center">
-          <div class="date text-center">
-            <p><%=y.blogType%></p>
-          </div>
-          <div class="h-[380px] w-[260px] imageDiv flex justify-center">
-            <img
-              class="h-[380px] w-[260px]"
-              src="http://localhost:5000/<%=y.blogImage%>"
-              alt="anh da bi an"
-            />
-          </div>
-          <div class="detailEvent flex flex-col justify-center">
-            <div class="nameEvent text-center">
-              <a href=""><%=y.description%></a>
-            </div>
-            <div class="typeEvent text-center">
-              <a href=""><%=y.content%></a>
-            </div>
-            <div class="postedBy text-center">
-              <!-- <a href=""><%=y.postedBy%></a> -->
-            </div>
-          </div>
-        </div>
-        <% }) %>
-      </section>
     </div>
-
-    <footer class="w-full border-t bg-white pb-12">
-      <div class="w-full container mx-auto flex flex-col items-center">
-        <div
-          class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
-        >
-          <a href="#" class="uppercase px-3">About Us</a>
-          <a href="#" class="uppercase px-3">Privacy Policy</a>
-          <a href="#" class="uppercase px-3">Terms & Conditions</a>
-          <a href="#" class="uppercase px-3">Contact Us</a>
-        </div>
-        <div class="uppercase pb-6">&copy; myblog.com</div>
-      </div>
-    </footer>
   </body>
 </html>

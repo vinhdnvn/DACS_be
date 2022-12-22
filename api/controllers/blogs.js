@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-
+const { count } = require("../models/blog");
+const ObjectID = require("mongodb").ObjectId;
 const Blog = require("../models/blog");
 
 const maxAge = 3 * 24 * 60 * 60;
@@ -86,15 +87,33 @@ exports.blogs_update_blog = (req, res, next) => {
     });
 };
 
-exports.blogs_delete_blog = async (req, res, next) => {
-  Blog.deleteOne({ blogId: req.params.blogId })
-    .then(() => {
+exports.blogs_delete_blog = (req, res, next) => {
+  const blog = req.body._id;
+  Blog.findByIdAndDelete(blog, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
       res.redirect("/blogs");
+    }
+  });
+};
+
+exports.get_blog_profile = (req, res, next) => {
+  Blog.find({ id: ObjectID(req.params.userId) })
+    .then((x) => {
+      res.render("blogprofile.ejs", { x });
     })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json({
-        error: error,
-      });
+    .catch((y) => {
+      console.log(y);
+    });
+};
+
+exports.blogs_getdetail = (req, res, next) => {
+  Blog.findById({ id: req.params.blogId })
+    .then((x) => {
+      res.render("blogById.ejs", { x });
+    })
+    .catch((y) => {
+      console.log(y);
     });
 };
