@@ -52,7 +52,9 @@ router.post(
   BlogController.blogs_post_blog
 );
 
-router.patch("/blogs/:blogId", BlogController.blogs_update_blog);
+// router.patch("/blogs/:blogId", BlogController.blogs_update_blog);
+router.get("/blogs/update/:blogId", BlogController.blogs_getUpdate);
+router.post("/blogs/update/:blogId", BlogController.blogs_userUpdate);
 
 router.post("/blogs/delete", BlogController.blogs_delete_blog);
 
