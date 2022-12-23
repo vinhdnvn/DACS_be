@@ -131,3 +131,32 @@ exports.blogs_getdetail = (req, res, next) => {
       console.log(y);
     });
 };
+
+// user update blog
+exports.blogs_getUpdate = (req, res, next) => {
+  Blog.findByIdAndUpdate(
+    { _id: ObjectID(req.params.blogId) },
+    req.body,
+    (err, blog) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("editblog", { blog: blog });
+      }
+    }
+  );
+};
+
+exports.blogs_userUpdate = (req, res) => {
+  Blog.findByIdAndUpdate(
+    { _id: ObjectID(req.params.blogId) },
+    req.body,
+    (err, blog) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("/blogs");
+      }
+    }
+  );
+};
