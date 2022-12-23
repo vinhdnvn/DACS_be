@@ -91,7 +91,13 @@ app.use((req, res, next) => {
 app.get("*", checkUser);
 // home page
 app.get("/", checkUser, (req, res) => {
-  res.render("home");
+  Event.find({}, (err, event) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("home", { event: event });
+    }
+  });
 });
 
 // routes which should handle request
