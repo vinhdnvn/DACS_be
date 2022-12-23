@@ -35,50 +35,50 @@ $.getJSON("/public/js/floor1.json", function (geojson) {
     onEachFeature: function (feature, layer) {
       if (feature.properties.room === "class") {
         layer.bindPopup(
-          "<h1> Phòng dạy học sinh viên  tầng 1 </h1>" +
-            '<img style="width :100%; height: 100%;"  src="./img/student.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng dạy học sinh viên  tầng 1 </h1>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/student.jpg"></img>'
         );
       }
       if (feature.properties.room === "wc") {
         layer.bindPopup(
-          "<h1> Phòng vệ sinh  </h1> <p> Phòng vệ sinh tầng 1</p>" +
-            ' <img style="width :100%; height: 100%;"  src="./img/wc.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng vệ sinh  </h1> <p> Phòng vệ sinh tầng 1</p>" +
+            ' <img style="width :100%; height: 100%;"  src="/public/img/wc.jpg"></img>'
         );
       }
       if (feature.properties.room === "costume") {
         layer.bindPopup(
-          "<h1> Phòng trang phục tầng 1 </h1> <p> Đây là phòng trang phục</p>" +
-            '<img style="width :100%; height: 100%;"  src="./img/ptrangphiuc.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng trang phục tầng 1 </h1> <p> Đây là phòng trang phục</p>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/ptrangphiuc.jpg"></img>'
         );
       }
       if (feature.properties.room === "door") {
         layer.bindPopup(
-          "<h1> Cửa ra vào khu A tầng 1 </h1><p> cửa ra vào</p>" +
-            ' <img style="width :100%; height: 100%;"  src="./img/door.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Cửa ra vào khu A tầng 1 </h1><p> cửa ra vào</p>" +
+            ' <img style="width :100%; height: 100%;"  src="/public/img/door.jpg"></img>'
         );
       }
       if (feature.properties.room === "equipment") {
         layer.bindPopup(
-          "<h1> Phòng thiết bị  tầng 1</h1> <p> Đây là phòng thiết bị</p>" +
-            '<img style="width :100%; height: 100%;"  src="./img/thietbi.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng thiết bị  tầng 1</h1> <p> Đây là phòng thiết bị</p>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/thietbi.jpg"></img>'
         );
       }
       if (feature.properties.room === "ladder") {
         layer.bindPopup(
-          "<h1> Cầu thang tầng 1 </h1> " +
-            '<img style="width :100%; height: 100%;"  src="./img/ladder.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Cầu thang tầng 1 </h1> " +
+            '<img style="width :100%; height: 100%;"  src="/public/img/ladder.jpg"></img>'
         );
       }
       if (feature.properties.room === "teacher") {
         layer.bindPopup(
-          "<h1> Phòng giảng viên A.109  </h1> " +
-            '  <img style="width :100%; height: 100%;"  src="./img/teacher.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng giảng viên A.109  </h1> " +
+            '  <img style="width :100%; height: 100%;"  src="/public/img/teacher.jpg"></img>'
         );
       }
       if (feature.properties.room === "hop") {
         layer.bindPopup(
-          "<h1> Phòng họp  tầng 1</h1> " +
-            '<img style="width :100%; height: 100%;"  src="./img/hop1.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng họp  tầng 1</h1> " +
+            '<img style="width :100%; height: 100%;"  src="/public/img/hop1.jpg"></img>'
         );
       }
     },
@@ -120,39 +120,39 @@ $.getJSON("/public/js/floor2.json", function (geojson) {
     onEachFeature: function (feature, layer) {
       if (feature.properties.room === "class") {
         layer.bindPopup(
-          "<h1> Phòng dạy học sinh viên  tầng 2 </h1>" +
-            '<img style="width :100%; height: 100%;"  src="./img/hoc2.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng dạy học sinh viên  tầng 2 </h1>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/hoc2.jpg"></img>'
         );
       }
       if (feature.properties.room === "wc") {
         layer.bindPopup(
-          "<h1> Phòng vệ sinh  </h1> <p> Phòng vệ sinh tầng 2</p>" +
-            ' <img style="width :100%; height: 100%;"  src="./img/wc2.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng vệ sinh  </h1> <p> Phòng vệ sinh tầng 2</p>" +
+            ' <img style="width :100%; height: 100%;"  src="/public/img/wc2.jpg"></img>'
         );
       }
       if (feature.properties.room === "lithuyet") {
         layer.bindPopup(
-          "<h1> Phòng học lí thuyết tầng 2 </h1>" +
-            '<img style="width :100%; height: 100%;"  src="./img/lithuyet2.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng học lí thuyết tầng 2 </h1>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/lithuyet2.jpg"></img>'
         );
       }
 
       if (feature.properties.room === "equipment") {
         layer.bindPopup(
-          "<h1> Phòng thiết bị tầng 2 </h1> <p> Đây là phòng thiết bị</p>" +
-            '<img style="width :100%; height: 100%;"  src="./img/thietbi2.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng thiết bị tầng 2 </h1> <p> Đây là phòng thiết bị</p>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/thietbi2.jpg"></img>'
         );
       }
       if (feature.properties.room === "ladder") {
         layer.bindPopup(
-          "<h1> Cầu thang tầng 2 </h1> " +
-            '<img style="width :100%; height: 100%;"  src="./img/ladder2.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Cầu thang tầng 2 </h1> " +
+            '<img style="width :100%; height: 100%;"  src="/public/img/ladder2.jpg"></img>'
         );
       }
       if (feature.properties.room === "hop") {
         layer.bindPopup(
-          "<h1> Phòng họp tầng 2 </h1> " +
-            '  <img style="width :100%; height: 100%;"  src="./img/hop2.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng họp tầng 2 </h1> " +
+            '  <img style="width :100%; height: 100%;"  src="/public/img/hop2.jpg"></img>'
         );
       }
     },
@@ -194,39 +194,39 @@ $.getJSON("/public/js/floor3.json", function (geojson) {
     onEachFeature: function (feature, layer) {
       if (feature.properties.room === "class") {
         layer.bindPopup(
-          "<h1> Phòng dạy học sinh viên tầng 3  </h1>" +
-            '<img style="width :100%; height: 100%;"  src="./img/hoc3.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng dạy học sinh viên tầng 3  </h1>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/hoc3.jpg"></img>'
         );
       }
       if (feature.properties.room === "wc") {
         layer.bindPopup(
-          "<h1> Phòng vệ sinh  </h1> <p> Phòng vệ sinh tầng 3</p>" +
-            ' <img style="width :100%; height: 100%;"  src="./img/wc3.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng vệ sinh  </h1> <p> Phòng vệ sinh tầng 3</p>" +
+            ' <img style="width :100%; height: 100%;"  src="/public/img/wc3.jpg"></img>'
         );
       }
       if (feature.properties.room === "lithuyet") {
         layer.bindPopup(
-          "<h1> Phòng học lí thuyết tầng 3 </h1>" +
-            '<img style="width :100%; height: 100%;"  src="./img/lithuyet3.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng học lí thuyết tầng 3 </h1>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/lithuyet3.jpg"></img>'
         );
       }
 
       if (feature.properties.room === "equipment") {
         layer.bindPopup(
-          "<h1> Phòng thiết bị tầng 3 </h1> <p> Đây là phòng thiết bị</p>" +
-            '<img style="width :100%; height: 100%;"  src="./img/thietbi3.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng thiết bị tầng 3 </h1> <p> Đây là phòng thiết bị</p>" +
+            '<img style="width :100%; height: 100%;"  src="/public/img/thietbi3.jpg"></img>'
         );
       }
       if (feature.properties.room === "ladder") {
         layer.bindPopup(
-          "<h1> Cầu thang tầng 3 </h1> " +
-            '<img style="width :100%; height: 100%;"  src="./img/ladder3.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Cầu thang tầng 3 </h1> " +
+            '<img style="width :100%; height: 100%;"  src="/public/img/ladder3.jpg"></img>'
         );
       }
       if (feature.properties.room === "hop") {
         layer.bindPopup(
-          "<h1> Phòng họp tầng 3 </h1> " +
-            '  <img style="width :100%; height: 100%;"  src="./img/hop3.jpg"></img>'
+          "<h1 style=`font-size: 24px; font-weight: bold`> Phòng họp tầng 3 </h1> " +
+            '  <img style="width :100%; height: 100%;"  src="/public/img/hop3.jpg"></img>'
         );
       }
     },

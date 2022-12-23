@@ -69,34 +69,39 @@
 
             <!-- User -->
             <div id="user" class="basis-2/6 lg:basis-1/6 hover:cursor-pointer">
-              <div
-                class="md:ml-9 ml-11 user max-w-[44px] h-11 bg-[url(./img/user.jpg)] bg-cover bg-no-repeat bg-center rounded-full relative"
-              >
+             
+              <div>
+                <% if (user) { %>
+                  <div class="w-12 h-12 bg-black rounded-full"></div>
                 <div
                   id="user-interface"
-                  class="hidden w-[180px] h-[150px] bg-white absolute top-12 shadow-inner"
+                  class="hidden w-[200px] h-[120px] bg-white absolute top-14 shadow-inner"
                 >
                   <div class="px-3 py-3">
-                    <span class="text-sm font-normal"> Dang Nha </span>
-                    <span class="text-sm font-medium">
-                      nhand.21it@vku.udn.vn
-                    </span>
+                    <span><%= user.email %></span>
                   </div>
                   <hr />
                   <div class="text-sm font-normal">
                     <div
                       class="text-sm px-3 py-2 font-normal hover:bg-slate-200"
                     >
-                      <span>settings</span>
+                    <a href="/blogs/<%= user._id%>"><span>Profile</span></a>
                     </div>
                     <div
                       class="logout px-3 py-2 flex gap-1 items-center hover:bg-slate-200"
                     >
-                      <a href="/login/"><span>sign out</span></a>
+                    <a href="/logout"><span>Logout</span></a>
                       <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                     </div>
                   </div>
                 </div>
+                <% } else { %>
+                <div class="flex flex-row gap-2">
+                  <div class="px-2 py-1 bg-black text-white hover:bg-gray-200 hover:text-black"><a href="/login">Login</a></div>
+                  <div class="px-2 py-1 bg-black text-white hover:bg-gray-200 hover:text-black"><a href="/signup">SignUp</a></div></div>
+                <% } %>
+                </div>
+                
               </div>
             </div>
 
@@ -328,5 +333,57 @@
         </div>
       </div>
     </div>
+    <script>
+      // alert('Welcome to my website')
+
+const topMenu = document.getElementById('nav-menu');
+const toggleTopMenuIcon = document.getElementById('nav-menu-toggle');
+
+document.addEventListener('click', (e) => {
+    if (toggleTopMenuIcon.contains(e.target)) {
+        topMenu.classList.toggle('hidden')
+        topMenu.classList.toggle('top-menu-expanded')
+    } else {
+        if (topMenu.classList.contains('top-menu-expanded')) {
+            topMenu.classList.remove('top-menu-expanded')
+            topMenu.classList.add('hidden')
+        }
+    }
+})
+
+var userAvt = document.getElementById('user');
+
+var userIn = document.getElementById('user-interface')
+
+
+document.addEventListener('click', (e) => {
+    if (userAvt.contains(e.target)) {
+        userIn.classList.toggle('hidden')
+        userIn.classList.toggle('block')
+    } else {
+        if (userIn.classList.contains('block')) {
+            userIn.classList.remove('block')
+            userIn.classList.add('hidden')
+        }
+    }
+})
+
+var maps = document.getElementById('digitial-map');
+
+var slMap = document.getElementById('selection')
+
+
+document.addEventListener('click', (e) => {
+    if (maps.contains(e.target)) {
+        slMap.classList.toggle('hidden')
+        slMap.classList.toggle('block')
+    } else {
+        if (slMap.classList.contains('block')) {
+            slMap.classList.remove('block')
+            slMap.classList.add('hidden')
+        }
+    }
+})
+    </script>
   </body>
 </html>
